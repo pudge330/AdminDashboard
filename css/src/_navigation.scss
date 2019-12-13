@@ -1,0 +1,204 @@
+.navMenu {
+	.navLinks {
+		color: inherit;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		font-size: 16px;
+	}
+	.navLinkAction {
+		display: inline-block;
+		color: inherit;
+		text-decoration: none;
+		&:hover {
+			.navLinkText {
+				text-decoration: underline;
+			}
+			.navLinkIcon {
+				svg {
+					fill: currentColor;
+				}
+			}
+		}
+	}
+	.navLinkText {
+		color: inherit;
+	}
+	.navLinkIcon {
+		svg {
+			fill: currentColor;
+			height: 1em;
+			width: 1.2em;
+			position: relative;
+			vertical-align: middle;
+			top: -2px;
+		}
+		img {
+			height: 1em;
+			width: auto;
+			display: block;
+			vertical-align: middle;
+			top: -2px;
+		}
+	}
+	.navLink {
+		margin-bottom: 0;
+		&[data-format="text"] {
+			.navLinkIcon {
+				display: none;
+			}
+		}
+		&[data-format="text-image"] {
+		}
+		&[data-format="image"] {
+			.navLinkText {
+				@extend %srOnly;
+			}
+			&[data-display="horizontal"] {
+				.navLinkIcon {
+					svg {
+						vertical-align: text-bottom;
+					}
+				}
+			}
+		}
+		&[data-display="horizontal"] {
+			display: inline-block;
+		}
+		&[data-display="vertical"] {
+			display: block;
+		}
+	}
+	.navLinkSpecial {
+		display: block;
+	}
+}
+
+.navMenu.navMenu-pageNav {
+	@media screen and (min-width: $skeleton-breakpoint-md) {
+	}
+	.navLinks {
+		font-size: 14px;
+		@media screen and (min-width: $skeleton-breakpoint-md) {
+			font-size: 16px;
+		}
+	}
+	.navLink {
+		&[data-sub-state="opened"] {
+			.navLinkText .subMenuToggle svg {
+				transform: rotate(180deg);
+			}
+		}
+		&[data-sub-state="closed"] {
+			.navLinkText .subMenuToggle svg {
+				transform: rotate(0deg);
+			}
+			> .navLinkSpecial.initiallyClosed {
+				display: none;
+			}
+		}
+	}
+	.navLinkAction,
+	.navLinkActionAlt {
+		outline: 0;
+		line-height: 1.15;
+		border: none;
+		display: block;
+		width: 100%;
+		padding: 15px;
+		color: $skeleton-widget-adminNav-menuLinkColor;
+		position: relative;
+		text-align: left;
+		@if ($skeleton-widget-adminNav-menuLinkBackground) {
+			background-color: $skeleton-widget-adminNav-menuLinkBackground;
+		}
+	}
+	.navLinkAction {
+		cursor: pointer;
+		&:hover, &.active-link, &:focus, &.focus-link {
+			.navLinkText {
+				text-decoration: none;
+			}
+			@if ($skeleton-widget-adminNav-menuLinkFocusBackground) {
+				background-color: $skeleton-widget-adminNav-menuLinkFocusBackground;
+			}
+			@if ($skeleton-widget-adminNav-menuLinkFocusColor) {
+				color: $skeleton-widget-adminNav-menuLinkFocusColor;
+			}
+		}
+	}
+	.navLinkSpecial {
+		.navLinkText {
+			margin-left: 1.5rem;
+		}
+		// .navLinkAction {
+		// 	padding: 15px 25px;
+		// }
+	}
+	.navLinkText {
+		display: inline-block;
+		.subMenuToggle {
+			outline: 0;
+			border: none;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			width: 47px;
+			height: 47px;
+			text-align: center;
+			line-height: 47px;
+			svg {
+				width: 1.2em;
+				height: auto;
+				transition: transform .45s ease;
+				display: inline;
+				vertical-align: middle;
+				position: relative;
+				top: -3px;
+			}
+			@media screen and (min-width: $skeleton-breakpoint-md) {
+				width: 49px;
+				height: 49px;
+				svg {
+					top: -1px;
+				}
+			}
+		}
+	}
+	.navLinkAction,
+	.navLinkActionAlt {
+		&.active-link {
+			.navLinkText .subMenuToggle:hover {
+			}
+		}
+	}
+	.navLinkIcon + .navLinkText {
+		margin-left: 0;
+	}
+	.navLinkIcon {
+	}
+	.navLinkSpecial {
+		display: block;
+		background: #eaeaea;
+		.navLinkAction {
+			&.active-link {
+				&:after {
+					content: '';
+					position: absolute;
+					top: 5px;
+					left: 5px;
+					width: 5px;
+					height: calc(100% - 10px);
+					background-color: $skeleton-widget-adminNav-menuLinkFocusBackground;
+				}
+				background-color: unset;
+			}
+			&:hover, &:focus, &.focus-link {
+				.navLinkText {
+					text-decoration: none;
+				}
+				background: #ddd;
+			}
+		}
+	}
+}

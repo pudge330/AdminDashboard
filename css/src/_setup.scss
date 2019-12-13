@@ -1,0 +1,75 @@
+//--settings
+$skeleton-breakpoint-sm: 38em !default;
+$skeleton-breakpoint-md: 46em !default;
+$skeleton-headerSmHeight: 40px !default;
+$skeleton-headerMdHeight: 50px !default;
+$skeleton-pageMenuTiming: 0.4s !default;
+$skeleton-color-headerBackground: linear-gradient(to right, #00BFFF, #00FFA5) !default;
+$skeleton-color-headerColor: #fff !default;
+$skeleton-color-headerMenuActionColor: $skeleton-color-headerColor !default;
+$skeleton-color-headerMenuActionFocusColor: null !default;
+$skeleton-color-headerMenuActionFocusBackground: rgba(0, 0, 0, 0.2) !default;
+$skeleton-color-headerMemberColor: $skeleton-color-headerColor !default; //--unused
+$skeleton-color-headerMemberFocusColor: null !default; //--unused
+$skeleton-color-headerBrandingColor: null !default;
+$skeleton-color-headerLogoutHover: #FFCDD2 !default;
+$skeleton-color-pageBackground: #fafafa !default;
+$skeleton-color-pageColor: #222 !default;
+//--fonts
+$skeleton-font-base: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-heading:  "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-nav: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-map: (
+	base: $skeleton-font-base
+	,heading: $skeleton-font-heading
+	,nav: $skeleton-font-nav
+);
+
+$skeleton-widget-adminNav-menuLinkColor: #000 !default;
+$skeleton-widget-adminNav-menuLinkBackground: null !default;
+$skeleton-widget-adminNav-menuLinkFocusColor: null !default;
+$skeleton-widget-adminNav-menuLinkFocusBackground: #ccc !default;
+$skeleton-widget-adminNav-menuLinkFocusBorder: #aaa !default;
+
+$skeleton-color-headerBackground: #00AAE4;
+$skeleton-color-headerMenuActionFocusBackground: rgba(255, 255, 255, 0.3);
+
+//--placeholders
+%srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+%shadow {
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+				0 3px 1px -2px rgba(0,0,0,0.12),
+				0 1px 5px 0 rgba(0,0,0,0.2);
+}
+%topZIndex {
+	z-index: 999;
+	position: relative;
+}
+%skeleton_mainContentWidth {
+	@media screen and (min-width: $skeleton-breakpoint-sm) {
+	}
+	@media screen and (min-width: $skeleton-breakpoint-md) {
+	}
+	.page-main-wrap[data-nomenu] & {
+		width: 100vw;
+	}
+}
+%skeleton_pageContextBar {
+	background: #fff;
+	.inner-wrap {
+		width: 100%;
+		overflow: visible;
+		&:empty {
+			display: none;
+		}
+	}
+}
