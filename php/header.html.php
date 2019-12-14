@@ -22,7 +22,7 @@ $sideMenuIcon = $data['sideMenuIcon'] ?: '<svg width="100%" height="100%" viewBo
 			<span class="nav-icon">
 				<?=$mainMenuIcon?>
 			</span>
-			<span class="nav-label"><?=($data['menuState'] == 'opened' ? 'Close' : 'Open')?> Page Navigation</span>
+			<span class="nav-label"><?=($data['mainMenuState'] == 'opened' ? 'Close' : 'Open')?> Page Navigation</span>
 		</button>
 	<?php } else if ($data['lockIcon']) { ?>
 		<span class="header-nav-action">
