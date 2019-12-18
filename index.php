@@ -131,6 +131,7 @@ $data = [
 			}
 			echo "</ul>";
 		}
+		,'page' => file_get_contents(__DIR__ . '/ipsum.txt')
 	]
 ];
 ?>
@@ -141,6 +142,14 @@ $data = [
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Skeleton Template</title>
 	<link href="css/main.css?v=<?=rand()?>" type="text/css" rel="stylesheet">
+	<style>
+		.main-content p {
+			margin: 0 0 1rem 0;
+		}
+		.main-content {
+			padding: 1rem;
+		}
+	</style>
 </head>
 <body>
 	<?php
