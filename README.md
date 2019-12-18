@@ -4,7 +4,7 @@ A admin dashboard template. Comes with 4 built-in menus and javascript to handle
 
 ## Getting Started
 
-To get started clone this repo to somewhere in your project.
+To get started clone this repo somewhere in your project.
 
 ```bash
 > git clone https://github.com/pudge330/AdminDashboard.git
@@ -46,3 +46,5 @@ Include the javascript.
 ```
 
 AdminSkeleton also includes require js copies of the javascript `skeleton-requirejs.js` and `skeleton-requirejs.min.js`
+
+I plan to update the javascript in order to remove jQuery's dependency and I also plan to bundle a custom build of bglib into it to make it a single javascript file.
