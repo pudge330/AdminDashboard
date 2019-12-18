@@ -94,7 +94,7 @@ $renderAdminSkeleton([
 | memberLabel | String | A label for the header's dropdown menu, usually a member |
 | memberImage | String | A image for the header's dropdown menu, usually a member photo or avatar |
 | lockIcon | Bool | Whether or not to show the lock icon when the main menu doesn't exists, useful for login pages |
-| hideEmptyHeader | Bool | Will not output header if empty when true |
+| hideEmptyHeader | Bool | Whether or not to show output header if empty when true |
 | mainMenuState | Bool | Where or not the main page menu is open (true) or closed (false) |
 | appMenuState | Bool | Where or not the app page menu is open (true) or closed (false) |
 | headerMenuState | Bool | Where or not the header page menu is open (true) or closed (false) |
