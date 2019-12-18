@@ -545,7 +545,6 @@ html[data-app-menu-state="closed"] .page-skeleton .page-app-menu .inner-wrap {
   flex-direction: column;
   position: absolute;
   height: 100%;
-  border-right: 1px solid #ddd;
   left: 0;
 }
 @media screen and (min-width: 38em) {
@@ -575,7 +574,6 @@ html[data-app-menu-state="closed"] .page-skeleton .page-app-menu .inner-wrap {
 html[data-menu-state="closed"] .page-skeleton .page-menu {
   margin-left: -250px;
   box-shadow: none;
-  border-right: none;
 }
 @media screen and (min-width: 38em) {
   html[data-menu-state="closed"] .page-skeleton .page-menu {
