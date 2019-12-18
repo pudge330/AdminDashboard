@@ -85,15 +85,17 @@ $renderAdminSkeleton([
 
 ## Template Configuration Options
 
-| Name | Description |
-| ---  | --- |
-| title | Page header title |
-| version | System version string/HTML, bottom of main menu |
-| mainMenu | *An array representing a menu
-| headerMenu | *An array representing a menu
-| memberLabel | A label for the header's dropdown menu, usually a member
-| memberImage | A image for the header's dropdown menu, usually a member photo or avatar
-| lockIcon | Whether or not to show the lock icon when the main menu doesn't exists, useful for login pages
+| Name | Type | Description
+| ---  | ---
+| title | String | Page header title
+| version | String | System version string/HTML, bottom of main menu
+| mainMenu | Array | *An array representing a menu
+| headerMenu | Array | *An array representing a menu
+| memberLabel | String | A label for the header's dropdown menu, usually a member
+| memberImage | String | A image for the header's dropdown menu, usually a member photo or avatar
+| lockIcon | Bool | Whether or not to show the lock icon when the main menu doesn't exists, useful for login pages
+| hideEmptyHeader | Bool | Will not output header if empty when true
+| mainMenuState | Bool | Where or not the main page menu is open (true) or closed (false)
 
 	'title' => null
 	,'version' => null
