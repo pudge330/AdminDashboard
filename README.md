@@ -16,7 +16,7 @@ To get started clone this repo somewhere in your project.
 
 AdminSkeleton uses SASS, to customize the look and feel just override any of the settings found in `css/src/_setup.scss` and include the `main.scss` file found in the same directory.
 
-```sass
+```scss
 // file: admin-skeleton.scss
 
 // Make the header background color white
@@ -134,7 +134,7 @@ $renderAdminSkeleton([
 
 ## Sass Variable Reference
 
-```sass
+```scss
 $skeleton-breakpoint-sm: 38em !default;
 $skeleton-breakpoint-md: 46em !default;
 $skeleton-headerSmHeight: 40px !default;
