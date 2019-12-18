@@ -89,8 +89,8 @@ $renderAdminSkeleton([
 | ---  | --- | --- |
 | title | String | Page header title |
 | version | String | System version string/HTML, bottom of main menu |
-| mainMenu | Array | *An array representing a menu |
-| headerMenu | Array | *An array representing a menu |
+| mainMenu | Array | * An array representing a menu |
+| headerMenu | Array | * An array representing a menu |
 | memberLabel | String | A label for the header's dropdown menu, usually a member |
 | memberImage | String | A image for the header's dropdown menu, usually a member photo or avatar |
 | lockIcon | Bool | Whether or not to show the lock icon when the main menu doesn't exists, useful for login pages |
@@ -104,25 +104,66 @@ $renderAdminSkeleton([
 | appMenuIcon | Bool | App menu svg icon |
 | headerMenuIcon | Bool | Header menu svg icon |
 | sideMenuIcon | Bool | Side menu svg icon |
-| content | Array | Array containing content for various parts of the page |
+| content | Array | + Array containing content for various parts of the page |
 
-	'title' => null
-	,'version' => null
-	,'mainMenu' => Array()
-	,'headerMenu' => Array()
-	,'memberLabel' => null
-	,'memberImage' => null
-	,'lockIcon' => false
-	,'hideEmptyHeader' => true
-	,'mainMenuState' => true
-	,'appMenuState' => false
-	,'headerMenuState' => false
-	,'sideMenuState' => false
-	,'mainMenuIcon' => null
-	,'mainMenuLockIcon' => null
-	,'appMenuIcon' => null
-	,'headerMenuIcon' => null
-	,'sideMenuIcon' => null
-	,'content' => Array()
+### * Menus
+
+- name - the menu name
+- links - the menu links
+	- text
+	- url
+	- urlNewWindow
+	- icon
+	- image
+	- active
+	- specialContent
+	- toggle
+	- links
+- toggleIcon - svg toggle icon
+
+### + Content
+
+- page
+- header
+- headerMenu
+- mainMenu
+- sideMenu
+- appMenu
+- topToolbar
+- bottomToolbar
 
 ## Sass Variable Reference
+
+```sass
+$skeleton-breakpoint-sm: 38em !default;
+$skeleton-breakpoint-md: 46em !default;
+$skeleton-headerSmHeight: 40px !default;
+$skeleton-headerMdHeight: 50px !default;
+$skeleton-pageMenuTiming: 0.4s !default;
+$skeleton-color-headerBackground: #00AAE4 !default;
+$skeleton-color-headerColor: #fff !default;
+$skeleton-color-headerMenuActionColor: $skeleton-color-headerColor !default;
+$skeleton-color-headerMenuActionFocusColor: null !default;
+$skeleton-color-headerMenuActionFocusBackground: rgba(255, 255, 255, 0.3) !default;
+$skeleton-color-headerMemberColor: $skeleton-color-headerColor !default; //--unused
+$skeleton-color-headerMemberFocusColor: null !default; //--unused
+$skeleton-color-headerBrandingColor: null !default;
+$skeleton-color-headerLogoutHover: #FFCDD2 !default;
+$skeleton-color-pageBackground: #fff !default;
+$skeleton-color-pageColor: #222 !default;
+//--fonts
+$skeleton-font-base: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-heading:  "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-nav: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-map: (
+	base: $skeleton-font-base
+	,heading: $skeleton-font-heading
+	,nav: $skeleton-font-nav
+);
+
+$skeleton-widget-adminNav-menuLinkColor: #000 !default;
+$skeleton-widget-adminNav-menuLinkBackground: null !default;
+$skeleton-widget-adminNav-menuLinkFocusColor: null !default;
+$skeleton-widget-adminNav-menuLinkFocusBackground: #ccc !default;
+$skeleton-widget-adminNav-menuLinkFocusBorder: #aaa !default;
+```
