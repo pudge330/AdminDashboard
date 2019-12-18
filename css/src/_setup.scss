@@ -64,7 +64,7 @@ $skeleton-color-headerMenuActionFocusBackground: rgba(255, 255, 255, 0.3);
 	}
 }
 %skeleton_pageContextBar {
-	background: #fff;
+	background: $skeleton-color-pageBackground;
 	.inner-wrap {
 		width: 100%;
 		overflow: visible;
