@@ -4,11 +4,15 @@ A admin dashboard template. Comes with 4 built-in menus and javascript to handle
 
 ## Getting Started
 
+### Cloning the Repo
+
 To get started clone this repo somewhere in your project.
 
 ```bash
 > git clone https://github.com/pudge330/AdminDashboard.git
 ```
+
+### Customizing the CSS
 
 AdminSkeleton uses SASS, to customize the look and feel just override any of the settings found in `css/src/_setup.scss` and include the `main.scss` file found in the same directory.
 
@@ -29,7 +33,7 @@ Then build the final css.
 > sass admin-skeleton.scss:admin-skeleton.css
 ```
 
-## Setting up Your HTML
+### Setting up Your HTML
 
 Include the skeleton's CSS file or include it in your build.
 
@@ -48,3 +52,61 @@ Include the javascript.
 AdminSkeleton also includes require js copies of the javascript `skeleton-requirejs.js` and `skeleton-requirejs.min.js`
 
 I plan to update the javascript in order to remove jQuery's dependency and I also plan to bundle a custom build of bglib into it to make it a single javascript file.
+
+### Rendering in PHP
+
+To render the skeleton you need to include or render the `php/skeleton.html.php` template file. You can do this multiple ways. You will also need to have a `$data` variable set in the current context with an associative array containing the templates configuration options.
+
+```php
+$data = [
+	// AdminSkeleton's configuration options
+];
+include 'path-to-adminskeleton/php/skeleton.html.php';
+```
+
+If the `$data` variable conflicts with one in your project you can wrap everything up in a function.
+
+```php
+function renderAdminSkeleton($data) {
+	include 'path-to-adminskeleton/php/skeleton.html.php';	
+}
+renderAdminSkeleton([
+	// AdminSkeleton's configuration options
+]);
+
+// or as a closure
+$renderAdminSkeleton = function($data) {
+	include 'path-to-adminskeleton/php/skeleton.html.php';	
+};
+$renderAdminSkeleton([
+	// AdminSkeleton's configuration options
+]);
+```
+
+## Template Configuration Options
+
+| Name | Description |
+| ---  | --- |
+| title | Page header title. |
+| version | System version string/HTML, bottom of main menu |
+
+	'title' => null
+	,'version' => null
+	,'mainMenu' => Array()
+	,'headerMenu' => Array()
+	,'memberLabel' => null
+	,'memberImage' => null
+	,'lockIcon' => false
+	,'hideEmptyHeader' => true
+	,'mainMenuState' => true
+	,'appMenuState' => false
+	,'headerMenuState' => false
+	,'sideMenuState' => false
+	,'mainMenuIcon' => null
+	,'mainMenuLockIcon' => null
+	,'appMenuIcon' => null
+	,'headerMenuIcon' => null
+	,'sideMenuIcon' => null
+	,'content' => Array()
+
+## Sass Variable Reference
