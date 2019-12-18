@@ -96,6 +96,15 @@ $renderAdminSkeleton([
 | lockIcon | Bool | Whether or not to show the lock icon when the main menu doesn't exists, useful for login pages |
 | hideEmptyHeader | Bool | Will not output header if empty when true |
 | mainMenuState | Bool | Where or not the main page menu is open (true) or closed (false) |
+| appMenuState | Bool | Where or not the app page menu is open (true) or closed (false) |
+| headerMenuState | Bool | Where or not the header page menu is open (true) or closed (false) |
+| sideMenuState | Bool | Where or not the header page menu is open (true) or closed (false) |
+| mainMenuIcon | Bool | Main menu svg icon |
+| mainMenuLockIcon | Bool | Main menu lock svg icon |
+| appMenuIcon | Bool | App menu svg icon |
+| headerMenuIcon | Bool | Header menu svg icon |
+| sideMenuIcon | Bool | Side menu svg icon |
+| content | Array | Array containing content for various parts of the page |
 
 	'title' => null
 	,'version' => null
