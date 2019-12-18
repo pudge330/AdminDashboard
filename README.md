@@ -165,5 +165,5 @@ $skeleton-widget-adminNav-menuLinkColor: #000 !default;
 $skeleton-widget-adminNav-menuLinkBackground: null !default;
 $skeleton-widget-adminNav-menuLinkFocusColor: null !default;
 $skeleton-widget-adminNav-menuLinkFocusBackground: #ccc !default;
-$skeleton-widget-adminNav-menuLinkFocusBorder: #aaa !default ;
+$skeleton-widget-adminNav-menuLinkFocusBorder: #aaa !default;
 ```
