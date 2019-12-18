@@ -85,7 +85,7 @@ $renderAdminSkeleton([
 
 ## Template Configuration Options
 
-| Name | Type | Description
+| Name | Type | Description |
 | ---  | ---
 | title | String | Page header title
 | version | String | System version string/HTML, bottom of main menu
