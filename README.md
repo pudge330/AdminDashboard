@@ -87,8 +87,13 @@ $renderAdminSkeleton([
 
 | Name | Description |
 | ---  | --- |
-| title | Page header title. |
+| title | Page header title |
 | version | System version string/HTML, bottom of main menu |
+| mainMenu | *An array representing a menu
+| headerMenu | *An array representing a menu
+| memberLabel | A label for the header's dropdown menu, usually a member
+| memberImage | A image for the header's dropdown menu, usually a member photo or avatar
+| lockIcon | Whether or not to show the lock icon when the main menu doesn't exists, useful for login pages
 
 	'title' => null
 	,'version' => null
