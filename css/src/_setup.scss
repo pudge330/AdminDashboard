@@ -4,11 +4,11 @@ $skeleton-breakpoint-md: 46em !default;
 $skeleton-headerSmHeight: 40px !default;
 $skeleton-headerMdHeight: 50px !default;
 $skeleton-pageMenuTiming: 0.4s !default;
-$skeleton-color-headerBackground: linear-gradient(to right, #00BFFF, #00FFA5) !default;
+$skeleton-color-headerBackground: #00AAE4 !default;
 $skeleton-color-headerColor: #fff !default;
 $skeleton-color-headerMenuActionColor: $skeleton-color-headerColor !default;
 $skeleton-color-headerMenuActionFocusColor: null !default;
-$skeleton-color-headerMenuActionFocusBackground: rgba(0, 0, 0, 0.2) !default;
+$skeleton-color-headerMenuActionFocusBackground: rgba(255, 255, 255, 0.3) !default;
 $skeleton-color-headerMemberColor: $skeleton-color-headerColor !default; //--unused
 $skeleton-color-headerMemberFocusColor: null !default; //--unused
 $skeleton-color-headerBrandingColor: null !default;
@@ -30,9 +30,6 @@ $skeleton-widget-adminNav-menuLinkBackground: null !default;
 $skeleton-widget-adminNav-menuLinkFocusColor: null !default;
 $skeleton-widget-adminNav-menuLinkFocusBackground: #ccc !default;
 $skeleton-widget-adminNav-menuLinkFocusBorder: #aaa !default;
-
-$skeleton-color-headerBackground: #00AAE4;
-$skeleton-color-headerMenuActionFocusBackground: rgba(255, 255, 255, 0.3);
 
 //--placeholders
 %srOnly {
