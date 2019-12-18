@@ -31,4 +31,18 @@ Then build the final css.
 
 ## Setting up Your HTML
 
+Include the skeleton's CSS file or include it in your build.
 
+```html
+<link href="/admindashboard/css/main.min.scss" type="text/css" rel="stylesheet">
+```
+
+Include the javascript.
+
+```html
+<script src="/admindashboard/js/vendor/bglib.min.js"></script>
+<script src="/admindashboard/js/vendor/jquery.min.js"></script>
+<script src="/admindashboard/js/skeleton.min.js"></script>
+```
+
+AdminSkeleton also includes require js copies of the javascript `skeleton-requirejs.js` and `skeleton-requirejs.min.js`
