@@ -237,7 +237,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 			this.$memberMenuAction.on('keydown', function(e) {
 				if (e.which === 9) {
 					if(e.shiftKey == false) {
-						if (_self.$html.attr('data-member-menu-state') == 'opened') {
+						if (_self.$el.attr('data-member-menu-state') == 'opened') {
 							setTimeout(function() {
 								_self.$memberMenuWrap.find('.navLink.nl-2 .navLinkAction').focus();
 							}, 1);
@@ -284,12 +284,12 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 			_self.adjustBrandingMaxWidth();
 			jQuery(_self.$window).on('click', function(e) {
 				var $this = jQuery(e.target);
-				if (_self.$html.attr('data-member-menu-state') == 'opened') {
+				if (_self.$el.attr('data-member-menu-state') == 'opened') {
 					if (!$this.closest('.page-header-menu').length && !$this.closest('.header-member-toggle').length) {
 						_self.closeMemberMenu();
 					}
 				}
-				if (_self.$html.attr('data-app-menu-state') == 'opened') {
+				if (_self.$el.attr('data-app-menu-state') == 'opened') {
 					if (!$this.closest('.page-app-menu').length && !$this.closest('.header-app-menu-action').length) {
 						_self.closeAppMenu();
 					}
@@ -325,7 +325,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 	}
 	,handleMemberMenuClick: function() {
 		var _self = this;
-		if (_self.$html.attr('data-member-menu-state') == 'closed') {
+		if (_self.$el.attr('data-member-menu-state') == 'closed') {
 			_self.openMemberMenu();
 		}
 		else {
@@ -334,7 +334,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 	}
 	,handleAppMenuClick: function() {
 		var _self = this;
-		if (_self.$html.attr('data-app-menu-state') == 'closed') {
+		if (_self.$el.attr('data-app-menu-state') == 'closed') {
 			_self.openAppMenu();
 		}
 		else {
@@ -372,7 +372,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 	}
 	,openMemberMenu: function() {
 		var _self = this;
-		_self.$html.attr('data-member-menu-state', 'opened');
+		_self.$el.attr('data-member-menu-state', 'opened');
 		_self.$memberMenuAction.find('.member-menu-sro').html('Close Member Menu');
 		_self.$memberMenuWrap.find('.inner-wrap').scrollTop(0);
 		_self.$memberMenuWrap.find('.inner-wrap').focus();
@@ -381,14 +381,14 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 	}
 	,closeMemberMenu: function() {
 		var _self = this;
-		_self.$html.attr('data-member-menu-state', 'closed');
+		_self.$el.attr('data-member-menu-state', 'closed');
 		_self.$memberMenuAction.find('.member-menu-sro').html('Open Member Menu');
 		_self.trigger('memberMenuClose');
 		_self.trigger('memberMenuToggle', {type: 'close'});
 	}
 	,openAppMenu: function() {
 		var _self = this;
-		_self.$html.attr('data-app-menu-state', 'opened');
+		_self.$el.attr('data-app-menu-state', 'opened');
 		_self.$appMenuAction.find('.nav-label').html('Close App Menu');
 		_self.$appMenuWrap.find('.inner-wrap').scrollTop(0);
 		_self.trigger('appMenuOpen');
@@ -396,7 +396,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 	}
 	,closeAppMenu: function() {
 		var _self = this;
-		_self.$html.attr('data-app-menu-state', 'closed');
+		_self.$el.attr('data-app-menu-state', 'closed');
 		_self.$appMenuAction.find('.nav-label').html('Open App Menu');
 		_self.trigger('appMenuClose');
 		_self.trigger('appMenuToggle', {type: 'close'});

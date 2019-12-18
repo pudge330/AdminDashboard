@@ -476,17 +476,6 @@ body {
     /*right: 10px;*/
   }
 }
-html[data-member-menu-state="closed"] .page-skeleton .page-header-menu {
-  top: -275px;
-}
-html[data-member-menu-state="closed"] .page-skeleton .page-header-menu .inner-wrap {
-  display: none;
-}
-@media screen and (min-width: 38em) {
-  html[data-member-menu-state="closed"] .page-skeleton .page-header-menu {
-    top: -265px;
-  }
-}
 .page-skeleton .page-header-menu .inner-wrap {
   overflow: auto;
 }
@@ -516,17 +505,6 @@ html[data-member-menu-state="closed"] .page-skeleton .page-header-menu .inner-wr
     max-width: calc(100vw - 2rem);
     top: 50px;
     right: 1rem;
-  }
-}
-html[data-app-menu-state="closed"] .page-skeleton .page-app-menu {
-  top: -325px;
-}
-html[data-app-menu-state="closed"] .page-skeleton .page-app-menu .inner-wrap {
-  display: none;
-}
-@media screen and (min-width: 38em) {
-  html[data-app-menu-state="closed"] .page-skeleton .page-app-menu {
-    top: -315px;
   }
 }
 .page-skeleton .page-app-menu .inner-wrap {
@@ -716,4 +694,27 @@ html[data-side-menu-state="closed"] .page-skeleton .page-main-wrap .menu-toggle.
 .page-skeleton .page-content-wrap .main-content + .page-toolbar-wrap .inner-wrap {
   border-bottom: none;
   border-top: 1px solid #ccc;
+}
+
+.page-skeleton[data-member-menu-state="closed"] .page-header-menu {
+  top: -275px;
+}
+.page-skeleton[data-member-menu-state="closed"] .page-header-menu .inner-wrap {
+  display: none;
+}
+@media screen and (min-width: 38em) {
+  .page-skeleton[data-member-menu-state="closed"] .page-header-menu {
+    top: -265px;
+  }
+}
+.page-skeleton[data-app-menu-state="closed"] .page-app-menu {
+  top: -325px;
+}
+.page-skeleton[data-app-menu-state="closed"] .page-app-menu .inner-wrap {
+  display: none;
+}
+@media screen and (min-width: 38em) {
+  .page-skeleton[data-app-menu-state="closed"] .page-app-menu {
+    top: -315px;
+  }
 }

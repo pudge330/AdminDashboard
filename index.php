@@ -110,21 +110,21 @@ $data = [
 		// 	}
 		// 	echo "</ul>";
 		// },
-		// 'mainMenu' => function($data) {
-		// 	echo "<ul>";
-		// 	for ($i = 1; $i <= 20; $i++) {
-		// 		echo "<li>Menu Item {$i}</li>";
-		// 	}
-		// 	echo "</ul>";
-		// },
-		'sideMenu1' => function($data) {
+		'mainMenu2' => function($data) {
 			echo "<ul>";
 			for ($i = 1; $i <= 20; $i++) {
 				echo "<li>Menu Item {$i}</li>";
 			}
 			echo "</ul>";
 		},
-		'appMenuq' => function($data) {
+		'sideMenu' => function($data) {
+			echo "<ul>";
+			for ($i = 1; $i <= 20; $i++) {
+				echo "<li>Menu Item {$i}</li>";
+			}
+			echo "</ul>";
+		},
+		'appMenu' => function($data) {
 			echo "<ul>";
 			for ($i = 1; $i <= 20; $i++) {
 				echo "<li>Menu Item {$i}</li>";
