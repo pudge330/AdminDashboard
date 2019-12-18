@@ -88,11 +88,6 @@ $renderAdminSkeleton([
 | Name | Type | Description |
 | ---  | --- |
 | title | String | Page header title |
-| version | String | System version string/HTML, bottom of main menu |
-| mainMenu | Array | *An array representing a menu |
-| headerMenu | Array | *An array representing a menu |
-| memberLabel | String | A label for the header's dropdown menu, usually a member |
-| memberImage | String | A image for the header's dropdown menu, usually a member photo or avatar |
 
 	'title' => null
 	,'version' => null
