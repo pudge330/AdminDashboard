@@ -71,6 +71,8 @@
 	}
 	.navLinkSpecial {
 		display: block;
+		transition: height 0.4s;
+		overflow: hidden;
 	}
 }
 
@@ -93,8 +95,8 @@
 			.navLinkText .subMenuToggle svg {
 				transform: rotate(0deg);
 			}
-			> .navLinkSpecial.initiallyClosed {
-				display: none;
+			> .navLinkSpecial {
+				height: 0 !important;
 			}
 		}
 	}
