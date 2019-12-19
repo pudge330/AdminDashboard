@@ -136,7 +136,7 @@ $data = [
 ];
 ?>
 <!DOCTYPE html>
-<html lang="en" data-menu-state="opened" data-app-menu-state="closed" data-member-menu-state="closed" data-side-menu-state="closed">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

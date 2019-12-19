@@ -36,21 +36,28 @@ SkeletonWidget.modules.Base = bglib.EventModule.extend({
 			if (!bglib.DT.isObject(opts)) {
 				opts = { el: opts };
 			}
-			var elm = bglib.El.element(opts.el);
-			elm = jQuery(elm);
-			opts.el = elm;
-			this.$el = elm;
+			this.$el = opts.el;
 			bglib.EventModule.apply(_self, [opts]);
 		}
 	}
 	,initialized: function() {
-		return (this.$el.attr('data-state') == 'loaded');
+		if (this.$el instanceof jQuery) {
+			return (this.$el.attr('data-state') == 'loaded');
+		}
+		return (this.$el.getAttribute('data-state') == 'loaded');
 	}
 	,setState: function(state) {
-		this.$el.attr('data-state', state);
+		if (this.$el instanceof jQuery) {
+			this.$el.attr('data-state', state);
+			return;
+		}
+		this.$el.setAttribute('data-state', state);
 	}
 	,getState: function(state) {
-		return this.$el.attr('data-state');
+		if (this.$el instanceof jQuery) {
+			return this.$el.attr('data-state');
+		}
+		return this.$el.getAttribute('data-state');
 	}
 }, {
 	load: function () {}

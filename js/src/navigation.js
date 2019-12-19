@@ -2,7 +2,8 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 	init: function(opts) {
 		if (this.$el && !this.initialized()) {
 			var _self = this;
-			this.$el.data('SkeletonWidget_Navigation', this);
+			this.$el['SkeletonWidget_Navigation'] = this;
+			this.$el = jQuery(this.$el);
 			this.setState('loaded');
 			this.$el.find('> .navLinks > .navLink > .navLinkAction').on('click', function(e) {
 				_self.handleLink(jQuery(this).closest('.navLink'), e);
@@ -89,9 +90,10 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 }, {
 	widgetSelector: '.navMenu-pageNav'
 	,initWidgets: function() {
-		jQuery(SkeletonWidget.modules.Navigation.widgetSelector).each(function() {
-			SkeletonWidget.modules.Navigation.initWidget(jQuery(this));
-		});
+		var widgets = document.querySelectorAll(SkeletonWidget.modules.Navigation.widgetSelector);
+		for (var i = 0; i < widgets.length; i++) {
+			SkeletonWidget.modules.Navigation.initWidget(widgets[i]);
+		}
 	}
 	,initWidget: function(el) {
 		return new SkeletonWidget.modules.Navigation({el: el});
