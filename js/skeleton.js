@@ -271,49 +271,65 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 			this.$appMenuWrap = this.$el.querySelector('.page-app-menu');
 			this.$sideMenuWrap = this.$el.querySelector('.page-side-menu');
 			this.$pageContentWrap = this.$el.querySelector('.page-content-wrap');
-			this.$pageMenuAction.addEventListener('click', function() {
-				_self.trigger('pageMenuClick');
-				_self.handlePageMenuClick();
-			});
-			this.$memberMenuAction.addEventListener('click', function() {
-				_self.trigger('memberMenuClick');
-				_self.handleMemberMenuClick();
-			});
-			this.$memberMenuAction.addEventListener('keydown', function(e) {
-				if (e.keyCode === 9) {
-					if(e.shiftKey == false) {
-						if (_self.$el.getAttribute('data-member-menu-state') == 'opened') {
+			if (this.$pageMenuAction) {
+				this.$pageMenuAction.addEventListener('click', function() {
+					_self.trigger('pageMenuClick');
+					_self.handlePageMenuClick();
+				});
+			}
+			if (this.$memberMenuAction) {
+				this.$memberMenuAction.addEventListener('click', function() {
+					_self.trigger('memberMenuClick');
+					_self.handleMemberMenuClick();
+				});
+				this.$memberMenuAction.addEventListener('keydown', function(e) {
+					if (e.keyCode === 9) {
+						if(e.shiftKey == false) {
+							if (_self.$el.getAttribute('data-member-menu-state') == 'opened') {
+								setTimeout(function() {
+									_self.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').focus();
+								}, 1);
+							}
+						}
+					}
+				});
+			}
+			if (this.$memberMenuWrap) {
+				this.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').addEventListener('keydown', function(e) {
+					if (e.keyCode === 9) {
+						if(e.shiftKey === true) {
+							// member is tabbing backward
 							setTimeout(function() {
-								_self.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').focus();
+								_self.$memberMenuAction.focus();
 							}, 1);
 						}
 					}
-				}
-			});
-			this.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').addEventListener('keydown', function(e) {
-				if (e.keyCode === 9) {
-					if(e.shiftKey === true) {
-						// member is tabbing backward
-						setTimeout(function() {
-							_self.$memberMenuAction.focus();
-						}, 1);
-					}
-				}
-			});
-			this.$sideMenuAction.addEventListener('click', function() {
-				_self.trigger('sideMenuClick');
-				_self.handleSideMenuClick();
-			});
-			this.$appMenuAction.addEventListener('click', function() {
-				_self.trigger('appMenuClick');
-				_self.handleAppMenuClick();
-			});
-			this.$el.querySelector('.menu-toggle.main-menu-toggle').addEventListener('click', function() {
-				_self.handlePageMenuClick();
-			});
-			this.$el.querySelector('.menu-toggle.side-menu-toggle').addEventListener('click', function() {
-				_self.handleSideMenuClick();
-			});
+				});
+			}
+			if (this.$sideMenuAction) {
+				this.$sideMenuAction.addEventListener('click', function() {
+					_self.trigger('sideMenuClick');
+					_self.handleSideMenuClick();
+				});
+			}
+			if (this.$appMenuAction) {
+				this.$appMenuAction.addEventListener('click', function() {
+					_self.trigger('appMenuClick');
+					_self.handleAppMenuClick();
+				});
+			}
+			var $mainMenuToggle = this.$el.querySelector('.menu-toggle.main-menu-toggle');
+			if ($mainMenuToggle) {
+				$mainMenuToggle.addEventListener('click', function() {
+					_self.handlePageMenuClick();
+				});
+			}
+			var $sideMenuToggle = this.$el.querySelector('.menu-toggle.side-menu-toggle');
+			if ($sideMenuToggle) {
+				$sideMenuToggle.addEventListener('click', function() {
+					_self.handleSideMenuClick();
+				});
+			}
 			window.addEventListener('resize', function(e) {
 				if (window.innerWidth < _self.nvpWidth) {
 					if (_self.$el.getAttribute('data-menu-state') == 'opened' && _self.$el.getAttribute('data-side-menu-state') == 'opened') {
