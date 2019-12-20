@@ -1,5 +1,8 @@
 .sass-cache
 node_modules
+index.php
+ipsum.txt
+user.svg
 
 ##--OS files/folders
 */.DS_Store
