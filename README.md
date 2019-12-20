@@ -9,7 +9,7 @@ A admin panel skeleton template. Comes with 4 built-in menus and javascript to h
 To get started clone this repo somewhere in your project.
 
 ```bash
-> git clone https://github.com/pudge330/AdminSkeleton.git
+> git clone https://github.com/pudge330/AdminPanelSkeleton.git
 ```
 
 ### Customizing the CSS
