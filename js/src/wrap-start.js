@@ -1,1 +1,1 @@
-define(['jquery'], function(jQuery) {
+define([], function() {

@@ -41,29 +41,19 @@ SkeletonWidget.modules.Base = bglib.EventModule.extend({
 		}
 	}
 	,initialized: function() {
-		if (this.$el instanceof jQuery) {
-			return (this.$el.attr('data-state') == 'loaded');
-		}
 		return (this.$el.getAttribute('data-state') == 'loaded');
 	}
 	,setState: function(state) {
-		if (this.$el instanceof jQuery) {
-			this.$el.attr('data-state', state);
-			return;
-		}
 		this.$el.setAttribute('data-state', state);
 	}
 	,getState: function(state) {
-		if (this.$el instanceof jQuery) {
-			return this.$el.attr('data-state');
-		}
 		return this.$el.getAttribute('data-state');
 	}
 }, {
 	load: function () {}
 });
-/*
 
+/*
 Widget module
 
 SkeletonWidget.modules.MODULE_NAME = BaseWidget.extend({
@@ -76,9 +66,10 @@ SkeletonWidget.modules.MODULE_NAME = BaseWidget.extend({
 }, {
 	widgetSelector: '.MODULE_CLASS'
 	,initWidgets: function() {
-		jQuery(SkeletonWidget.modules.MODULE_NAME.widgetSelector).each(function() {
-			SkeletonWidget.modules.MODULE_NAME.initWidget(jQuery(this));
-		});
+		var widgets = document.querySelectorAll(SkeletonWidget.modules.MODULE_NAME.widgetSelector);
+		for (var i = 0; i < widgets.length; i++) {
+			SkeletonWidget.modules.MODULE_NAME.initWidget(widgets[i]);
+		}
 	}
 	,initWidget: function(el) {
 		return new SkeletonWidget.modules.MODULE_NAME({el: el});

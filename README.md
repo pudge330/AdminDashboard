@@ -45,7 +45,6 @@ Include the javascript.
 
 ```html
 <script src="/admindashboard/js/vendor/bglib.min.js"></script>
-<script src="/admindashboard/js/vendor/jquery.min.js"></script>
 <script src="/admindashboard/js/skeleton.min.js"></script>
 ```
 

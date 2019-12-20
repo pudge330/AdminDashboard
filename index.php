@@ -155,11 +155,10 @@ $data = [
 	<?php
 		include __DIR__ . '/php/skeleton.html.php';
 	?>
-	<script src="js/vendor/jquery.min.js" type="text/javascript"></script>
 	<script src="js/vendor/bglib.min.js" type="text/javascript"></script>
 	<script src="js/skeleton.js?v=<?=rand()?>" type="text/javascript"></script>
 	<script type="text/javascript">
-		jQuery(function() {
+		window.addEventListener('load', function() {
 			SkeletonWidget.load();
 		});
 	</script>
