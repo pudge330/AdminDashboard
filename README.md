@@ -1,6 +1,6 @@
-# AdminDashboard
+# AdminSkeleton
 
-A admin dashboard template. Comes with 4 built-in menus and javascript to handle opening and closing of menus.
+A admin panel skeleton template. Comes with 4 built-in menus and javascript to handle opening and closing of menus.
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ A admin dashboard template. Comes with 4 built-in menus and javascript to handle
 To get started clone this repo somewhere in your project.
 
 ```bash
-> git clone https://github.com/pudge330/AdminDashboard.git
+> git clone https://github.com/pudge330/AdminSkeleton.git
 ```
 
 ### Customizing the CSS
@@ -38,14 +38,14 @@ Then build the final css.
 Include the skeleton's CSS file or include it in your build.
 
 ```html
-<link href="/admindashboard/css/main.min.scss" type="text/css" rel="stylesheet">
+<link href="/adminskeleton/css/main.min.scss" type="text/css" rel="stylesheet">
 ```
 
 Include the javascript.
 
 ```html
-<script src="/admindashboard/js/vendor/bglib.min.js"></script>
-<script src="/admindashboard/js/skeleton.min.js"></script>
+<script src="/adminskeleton/js/vendor/bglib.min.js"></script>
+<script src="/adminskeleton/js/skeleton.min.js"></script>
 ```
 
 AdminSkeleton also includes require js copies of the javascript `skeleton-requirejs.js` and `skeleton-requirejs.min.js`
