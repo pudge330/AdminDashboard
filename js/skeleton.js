@@ -295,16 +295,19 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 				});
 			}
 			if (this.$memberMenuWrap) {
-				this.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').addEventListener('keydown', function(e) {
-					if (e.keyCode === 9) {
-						if(e.shiftKey === true) {
-							// member is tabbing backward
-							setTimeout(function() {
-								_self.$memberMenuAction.focus();
-							}, 1);
+				var menuItem = this.$memberMenuWrap.querySelector('.navLink.nl-1 .navLinkAction');
+				if (menuItem) {
+					menuItem.addEventListener('keydown', function(e) {
+						if (e.keyCode === 9) {
+							if(e.shiftKey === true) {
+								// member is tabbing backward
+								setTimeout(function() {
+									_self.$memberMenuAction.focus();
+								}, 1);
+							}
 						}
-					}
-				});
+					});
+				}
 			}
 			if (this.$sideMenuAction) {
 				this.$sideMenuAction.addEventListener('click', function() {
