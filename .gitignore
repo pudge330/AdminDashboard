@@ -1,5 +1,7 @@
-.sass-cache
-node_modules
+/.sass-cache
+/node_modules
+/vendor
+composer.lock
 index.php
 ipsum.txt
 user.svg
