@@ -1,10 +1,10 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
-use SkeletonWidget\SkeletonWidget;
+
+use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 if ($data['mainMenu'] && sizeof($data['mainMenu'])) {
 	$data['mainMenu']['name'] = 'mainMenu';
-	echo SkeletonWidget::render(__DIR__ . '/navigation.html.php', $data['mainMenu']);
+	echo AdminPanelSkeleton::renderPartial(__DIR__ . '/navigation.html.php', $data['mainMenu']);
 }
 
 if (isset($data['content']['mainMenu'])) {

@@ -1,8 +1,8 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
-use SkeletonWidget\SkeletonWidget;
 
-$data = array_merge(SkeletonWidget::defaults(Array(
+use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
+
+$data = array_merge(AdminPanelSkeleton::defaults(Array(
 	'name' => null,
 	'links' => Array(),
 	'isChild' => false,
@@ -10,7 +10,7 @@ $data = array_merge(SkeletonWidget::defaults(Array(
 )), $data);
 
 $skeletonWidget_processLink = function($link) use ($data) {
-	$link = array_merge(SkeletonWidget::defaults(array_merge(Array(
+	$link = array_merge(AdminPanelSkeleton::defaults(array_merge(Array(
 		'i' => null,
 		'text' => null,
 		'url' => null,
@@ -32,7 +32,7 @@ $skeletonWidget_processLink = function($link) use ($data) {
 
 	if ($link['specialContent'] && $link['specialContent'] !== null) {
 		if (file_exists($link['specialContent'])) {
-			$link['specialContent'] = SkeletonWidget::render($link['specialContent'], $link);
+			$link['specialContent'] = AdminPanelSkeleton::renderPartial($link['specialContent'], $link);
 		}
 	}
 
@@ -42,7 +42,7 @@ $skeletonWidget_processLink = function($link) use ($data) {
 			$childLinksData['name'] = "{$data['name']}-sub-menu";
 		}
 		$link['toggle'] = true;
-		$link['specialContent'] = SkeletonWidget::render(__DIR__ . '/navigation.html.php', $childLinksData) . $link['specialContent'];
+		$link['specialContent'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/navigation.html.php', $childLinksData) . $link['specialContent'];
 	}
 
 	if ($link['active']) {
@@ -93,7 +93,7 @@ if ($data['style']) {
 
 $data['attr']['role'] = 'navigation';
 
-$attr = SkeletonWidget::attr($data['attr']) . SkeletonWidget::attr($data['dataAttr'], 'data-');
+$attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data['dataAttr'], 'data-');
 ?>
 <nav<?=$attr?>>
 	<ul class="navLinks">
@@ -103,7 +103,7 @@ $attr = SkeletonWidget::attr($data['attr']) . SkeletonWidget::attr($data['dataAt
 				$link['i'] = $count;
 				$link = $skeletonWidget_processLink($link);
 				$target = $link['urlNewWindow'] == 1 ? ' data-target="_blank"' : '';
-				$linkAttr = SkeletonWidget::attr($link['attr']) . SkeletonWidget::attr($link['dataAttr'], 'data-');
+				$linkAttr = AdminPanelSkeleton::attr($link['attr']) . AdminPanelSkeleton::attr($link['dataAttr'], 'data-');
 		?>
 			<li<?=$linkAttr?>>
 				<?php if ($link['url']) { ?>

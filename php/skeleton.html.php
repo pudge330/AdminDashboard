@@ -1,8 +1,8 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
-use SkeletonWidget\SkeletonWidget;
 
-$data = array_merge(SkeletonWidget::defaults(Array(
+use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
+
+$data = array_merge(AdminPanelSkeleton::defaults(Array(
 	'title' => null
 	,'version' => null
 	,'mainMenu' => Array()
@@ -42,9 +42,9 @@ foreach ($data['content'] as $key => $value) {
 	}
 }
 
-$data['content']['headerMenu'] = SkeletonWidget::render(__DIR__ . '/header-menu.html.php', $data);
-$data['content']['mainMenu'] = SkeletonWidget::render(__DIR__ . '/page-menu.html.php', $data);
-$data['content']['header'] = SkeletonWidget::render(__DIR__ . '/header.html.php', $data);
+$data['content']['headerMenu'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/header-menu.html.php', $data);
+$data['content']['mainMenu'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/page-menu.html.php', $data);
+$data['content']['header'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/header.html.php', $data);
 
 $data['class'] .= ' page-skeleton';
 
@@ -97,7 +97,7 @@ if ($data['style']) {
 	$data['attr']['style'] = trim($data['style']);
 }
 
-$attr = SkeletonWidget::attr($data['attr']) . SkeletonWidget::attr($data['dataAttr'], 'data-');
+$attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data['dataAttr'], 'data-');
 ?>
 <div<?=$attr?>>
 	<?php if ($showHeader) { ?>

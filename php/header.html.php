@@ -1,6 +1,4 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
-use SkeletonWidget\SkeletonWidget;
 
 $hasPageMenu = (trim($data['content']['mainMenu']) ? true : false);
 $hasAppMenu = (trim($data['content']['appMenu']) ? true : false);

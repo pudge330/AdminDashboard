@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BGS\\AdminPanelSkeleton\\": "src/"
+            "BAG\\AdminPanelSkeleton\\": "src/"
         }
     }
 }
