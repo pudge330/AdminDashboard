@@ -151,10 +151,13 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 					}
 				});
 			}
-			this.updateMaxHeights();
+			// this.updateMaxHeights();
 			window.addEventListener('resize', bglib.fn.debounce(function() {
 				_self.updateMaxHeights();
 			}), 250);
+			this.toggleSubMenuTimeout = bglib.fn.debounce(function() {
+				_self.$el.querySelector('.navLinkSpecial').style.height = 'auto';
+			}, 500);
 		}
 	}
 	,updateMaxHeights: function() {
@@ -164,15 +167,20 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 		}
 	}
 	,toggleSubMenu: function($action) {
+		var _self = this;
 		var $link = $action.querySelector('.navLinkAction');
 		var innerHeight = $action.querySelector('.navLinkSpecial > .navMenu').offsetHeight;
 		if ($action.getAttribute('data-sub-state') == 'closed') {
 			$action.querySelector('.navLinkSpecial').style.height = innerHeight + 'px';
 			$action.setAttribute('data-sub-state', 'opened');
+			this.toggleSubMenuTimeout();
 		}
 		else {
 			$action.querySelector('.navLinkSpecial').style.height = innerHeight + 'px';
-			$action.setAttribute('data-sub-state', 'closed');
+			setTimeout(function() {
+				$action.setAttribute('data-sub-state', 'closed');
+				_self.toggleSubMenuTimeout();
+			}, 10);
 		}
 		$link.blur();
 		$link.querySelector('.subMenuToggle').blur();
