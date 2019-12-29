@@ -1,5 +1,4 @@
 <?php
-
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 if ($data['mainMenu'] && sizeof($data['mainMenu'])) {

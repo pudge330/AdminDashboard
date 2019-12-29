@@ -1,5 +1,4 @@
 <?php
-
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 $data = array_merge(AdminPanelSkeleton::defaults(Array(
