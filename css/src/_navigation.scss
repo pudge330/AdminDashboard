@@ -1,4 +1,4 @@
-.navMenu {
+.page-skeleton-menu {
 	.navLinks {
 		color: inherit;
 		padding: 0;
@@ -76,7 +76,7 @@
 	}
 }
 
-.navMenu.navMenu-pageNav {
+.page-skeleton-menu {
 	@media screen and (min-width: $skeleton-breakpoint-md) {
 	}
 	.navLinks {

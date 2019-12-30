@@ -151,25 +151,15 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 					}
 				});
 			}
-			// this.updateMaxHeights();
-			window.addEventListener('resize', bglib.fn.debounce(function() {
-				_self.updateMaxHeights();
-			}), 250);
 			this.toggleSubMenuTimeout = bglib.fn.debounce(function() {
 				_self.$el.querySelector('.navLinkSpecial').style.height = 'auto';
-			}, 500);
-		}
-	}
-	,updateMaxHeights: function() {
-		var $elms = document.querySelectorAll(this.topSelector + ' > .navLinks > .navLinkSubAction > .navLinkSpecial');
-		for (var i = 0; i < $elms.length; i++) {
-			$elms[i].style.height = $elms[i].querySelector('.navMenu').offsetHeight + 'px';
+			}, 400);
 		}
 	}
 	,toggleSubMenu: function($action) {
 		var _self = this;
 		var $link = $action.querySelector('.navLinkAction');
-		var innerHeight = $action.querySelector('.navLinkSpecial > .navMenu').offsetHeight;
+		var innerHeight = $action.querySelector('.navLinkSpecial > .page-skeleton-menu').offsetHeight;
 		if ($action.getAttribute('data-sub-state') == 'closed') {
 			$action.querySelector('.navLinkSpecial').style.height = innerHeight + 'px';
 			$action.setAttribute('data-sub-state', 'opened');
@@ -177,10 +167,11 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 		}
 		else {
 			$action.querySelector('.navLinkSpecial').style.height = innerHeight + 'px';
+			//--needs a 50ms delay when clsoing otherwise height isn't set or simply ignored
 			setTimeout(function() {
 				$action.setAttribute('data-sub-state', 'closed');
 				_self.toggleSubMenuTimeout();
-			}, 10);
+			}, 50);
 		}
 		$link.blur();
 		$link.querySelector('.subMenuToggle').blur();
@@ -207,7 +198,7 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 		}
 	}
 }, {
-	widgetSelector: '.navMenu-pageNav'
+	widgetSelector: '.page-skeleton-menu'
 	,initWidgets: function() {
 		var widgets = document.querySelectorAll(SkeletonWidget.modules.Navigation.widgetSelector);
 		for (var i = 0; i < widgets.length; i++) {

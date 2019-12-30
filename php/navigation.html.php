@@ -78,7 +78,7 @@ if (!$linkCount) {
 	return;
 }
 
-$data['class'] .= " navMenu navMenu-pageNav" . ($data['name'] ? " navMenu-{$data['name']}" : '');
+$data['class'] .= " page-skeleton-menu" . ($data['name'] ? " page-skeleton-menu-{$data['name']}" : '');
 
 if ($data['id']) {
 	$data['attr']['id'] = $data['id'];
