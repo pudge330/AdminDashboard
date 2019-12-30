@@ -153,7 +153,10 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 				});
 			}
 			this.toggleSubMenuTimeout = bglib.fn.debounce(function() {
-				_self.$el.querySelector('.navLinkSpecial').style.height = 'auto';
+				var $elms = _self.$el.querySelectorAll('.navLinkSpecial');
+				for (var i = 0; i < $elms.length; i++) {
+					$elms[i].style.height = 'auto';
+				}
 			}, 400);
 		}
 	}
