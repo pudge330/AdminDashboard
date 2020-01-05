@@ -4,12 +4,18 @@ A admin panel skeleton template. Comes with 4 built-in menus and javascript to h
 
 ## Getting Started
 
+### Using Composer
+
+```bash
+$ composer require bag/admin-panel-skeleton
+```
+
 ### Cloning the Repo
 
 To get started clone this repo somewhere in your project.
 
 ```bash
-> git clone https://github.com/pudge330/AdminPanelSkeleton.git
+$ git clone https://github.com/pudge330/AdminPanelSkeleton.git
 ```
 
 ### Customizing the CSS
@@ -30,7 +36,7 @@ $skeleton-color-headerMenuActionFocusBackground: rgba(0, 0, 0, 0.2);
 Then build the final css.
 
 ```bash
-> sass admin-skeleton.scss:admin-skeleton.css
+$ sass admin-skeleton.scss:admin-skeleton.css
 ```
 
 ### Setting up Your HTML
@@ -50,17 +56,37 @@ Include the javascript.
 
 AdminSkeleton also includes require js copies of the javascript `skeleton-requirejs.js` and `skeleton-requirejs.min.js`
 
-I plan to update the javascript in order to remove jQuery's dependency and I also plan to bundle a custom build of bglib into it to make it a single javascript file.
+I plan to bundle a custom build of bglib into it to make it a single javascript file.
 
 ### Rendering in PHP
 
-To render the skeleton you need to include or render the `php/skeleton.html.php` template file. You can do this multiple ways. You will also need to have a `$data` variable set in the current context with an associative array containing the templates configuration options.
+If you installed the admin panel skeleton via Composer you will just need ot call the static render method on the `AdminPanelSkeleton`.
 
 ```php
+use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
+$data = [
+	// AdminSkeleton's configuration options
+];
+echo AdminPanelSkeleton::render($data);
+```
+
+If you installed the admin panel by either downling a zip file or cloning the repo you need to render the `php/skeleton.html.php` template file manually or include the class file manually. You will also need to have a `$data` variable set in the current context with an associative array containing the templates configuration options.
+
+```php
+
+/* Include the template directly */
 $data = [
 	// AdminSkeleton's configuration options
 ];
 include 'path-to-adminskeleton/php/skeleton.html.php';
+
+/* Include the class and use the built in render method */
+require_once 'path-to-adminskeleton/src/AdminPanelSkeleton.php';
+use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
+$data = [
+	// AdminSkeleton's configuration options
+];
+echo AdminPanelSkeleton::render($data);
 ```
 
 If the `$data` variable conflicts with one in your project you can wrap everything up in a function.
