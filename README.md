@@ -60,7 +60,7 @@ I plan to bundle a custom build of bglib into it to make it a single javascript 
 
 ### Rendering in PHP
 
-If you installed the admin panel skeleton via Composer you will just need ot call the static render method on the `AdminPanelSkeleton`.
+If you installed the admin panel skeleton via Composer you will just need to call the static render method on the `AdminPanelSkeleton` class.
 
 ```php
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
@@ -70,7 +70,7 @@ $data = [
 echo AdminPanelSkeleton::render($data);
 ```
 
-If you installed the admin panel by either downling a zip file or cloning the repo you need to render the `php/skeleton.html.php` template file manually or include the class file manually. You will also need to have a `$data` variable set in the current context with an associative array containing the templates configuration options.
+If you installed the admin panel by either downloading a zip file or cloning the repo you need to render the `php/skeleton.html.php` template file manually or include the class file manually. You will also need to have a `$data` variable set in the current context with an associative array containing the templates configuration options.
 
 ```php
 
