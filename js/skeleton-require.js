@@ -1,4 +1,4 @@
-define([], function() {
+define(['bglib'], function(bglib) {
 var SkeletonWidget = {
 	modules: {}
 	,load: function() {
