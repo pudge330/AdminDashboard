@@ -150,14 +150,17 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 		var elms = [
 			'.header-nav-action', '.header-app-menu-toggle', '.header-member-menu', '.header-side-menu-toggle', '.app-menu-spacer', '.header-menu-spacer'
 		];
-		for (var i = 0; i < elms.length; i++) {
-			var el = document.querySelector(elms[i]);
-			if (el) {
-				minus = minus + el.offsetWidth;
-				minus = minus + parseInt(getComputedStyle(el)['margin-right'], 10);
+		var header = this.$el.querySelector('.page-header .header-branding h2');
+		if (header) {
+			for (var i = 0; i < elms.length; i++) {
+				var el = document.querySelector(elms[i]);
+				if (el) {
+					minus = minus + el.offsetWidth;
+					minus = minus + parseInt(getComputedStyle(el)['margin-right'], 10);
+				}
 			}
+			header.style['max-width'] = 'calc(100vw - ' + minus + 'px)';
 		}
-		this.$el.querySelector('.page-header .header-branding h2').style['max-width'] = 'calc(100vw - ' + minus + 'px)';
 	}
 	,handlePageMenuClick: function() {
 		var _self = this;
