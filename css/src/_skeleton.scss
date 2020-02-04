@@ -574,7 +574,6 @@ body {
 			margin-left: -250px;
 			box-shadow: none;
 			@media screen and (min-width: $skeleton-breakpoint-sm) {
-				opacity: 0;
 				margin-left: -200px;
 			}
 			@media screen and (min-width: $skeleton-breakpoint-md) {
