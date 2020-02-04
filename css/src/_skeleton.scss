@@ -588,9 +588,6 @@ body {
 	&[data-member-menu-state="closed"] {
 		.page-header-menu {
 			top: -275px;
-			.inner-wrap {
-				display: none;
-			}
 			@media screen and (min-width: $skeleton-breakpoint-sm) {
 				top: -265px;
 			}
@@ -599,9 +596,6 @@ body {
 	&[data-app-menu-state="closed"] {
 		.page-app-menu {
 			top: -325px;
-			.inner-wrap {
-				display: none;
-			}
 			@media screen and (min-width: $skeleton-breakpoint-sm) {
 				top: -315px;
 			}
@@ -610,9 +604,6 @@ body {
 	&[data-side-menu-state="closed"] {
 		.page-side-menu {
 			right: -403px;
-			.inner-wrap {
-				display: none;
-			}
 		}
 		.page-main-wrap .side-menu-toggle {
 			display: none;
