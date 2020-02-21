@@ -21,6 +21,7 @@ $data = array_merge(AdminPanelSkeleton::defaults(Array(
 	,'headerMenuIcon' => null
 	,'sideMenuIcon' => null
 	,'content' => Array()
+	,'contentOnly' => false
 )), $data);
 $data['content'] = array_merge(Array(
 	'page' => null
@@ -48,15 +49,19 @@ $data['content']['header'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/heade
 
 $data['class'] .= ' page-skeleton';
 
-$hasPageMenu = (trim($data['content']['mainMenu']) !== '');
-$hasSideMenu = (trim($data['content']['sideMenu']) !== '');
-$hasAppMenu = (trim($data['content']['appMenu']) !== '');
-$hasHeaderMenu = (trim($data['content']['headerMenu']) !== '');
+$hasPageMenu = (trim($data['content']['mainMenu']) !== '' && !$data['contentOnly']);
+$hasSideMenu = (trim($data['content']['sideMenu']) !== '' && !$data['contentOnly']);
+$hasAppMenu = (trim($data['content']['appMenu']) !== '' && !$data['contentOnly']);
+$hasHeaderMenu = (trim($data['content']['headerMenu']) !== '' && !$data['contentOnly']);
 
-$data['dataAttr']['menu-state'] = $data['mainMenuState'] ? 'opened' : 'closed';
-$data['dataAttr']['app-menu-state'] = $data['appMenuState'] ? 'opened' : 'closed';
-$data['dataAttr']['member-menu-state'] = $data['headerMenuState'] ? 'opened' : 'closed';
-$data['dataAttr']['side-menu-state'] = $data['sideMenuState'] ? 'opened' : 'closed';
+if ($hasPageMenu)
+	$data['dataAttr']['menu-state'] = $data['mainMenuState'] ? 'opened' : 'closed';
+if ($hasAppMenu)
+	$data['dataAttr']['app-menu-state'] = $data['appMenuState'] ? 'opened' : 'closed';
+if ($hasHeaderMenu)
+	$data['dataAttr']['member-menu-state'] = $data['headerMenuState'] ? 'opened' : 'closed';
+if ($hasSideMenu)
+	$data['dataAttr']['side-menu-state'] = $data['sideMenuState'] ? 'opened' : 'closed';
 
 if (!$hasPageMenu) {
 	$data['dataAttr']['nomenu'] = null;
@@ -78,9 +83,9 @@ if (!$data['memberImage']) {
 }
 
 $showHeader = (
-	($hasPageMenu || $hasAppMenu || $hasHeaderMenu || $hasSideMenu ||
+	(($hasPageMenu || $hasAppMenu || $hasHeaderMenu || $hasSideMenu ||
 	$data['title'] || $data['memberImage'] || $data['memberLabel']) ||
-	!$data['hideEmptyHeader']
+	!$data['hideEmptyHeader']) && !$data['contentOnly']
 );
 
 if (!$showHeader) {
@@ -105,14 +110,14 @@ $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data
 		<?=$data['content']['header']?>
 	</div>
 	<?php } ?>
-	<?php if (trim($data['content']['appMenu']) !== '') { ?>
+	<?php if ($hasAppMenu) { ?>
 		<div class="page-app-menu">
 			<div class="inner-wrap" tabindex="-1">
 				<?=$data['content']['appMenu']?>
 			</div>
 		</div>
 	<?php } ?>
-	<?php if (trim($data['content']['headerMenu']) !== '') { ?>
+	<?php if ($hasHeaderMenu) { ?>
 		<div class="page-header-menu">
 			<div class="inner-wrap" tabindex="-1">
 				<?=$data['content']['headerMenu']?>
