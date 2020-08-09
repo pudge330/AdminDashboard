@@ -184,7 +184,7 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 		var $link = $action.querySelector('.navLinkAction');
 		if ($link.getAttribute('data-href')) {
 			if (window.innerWidth < 600) {
-				document.querySelector('.pageSkeleton')['SkeletonWidget_Skeleton'].closePageMenu();
+				document.querySelector('.page-skeleton')['SkeletonWidget_Skeleton'].closePageMenu();
 			}
 			var _newWindow = (
 				(e.ctrlKey || e.metaKey) ||
