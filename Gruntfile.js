@@ -42,8 +42,8 @@ module.exports = function(grunt) {
 			,dist: {
 				src: [
 					'js/src/base.js'
-					,'js/src/skeleton.js'
 					,'js/src/navigation.js'
+					,'js/src/skeleton.js'
 				],
 				dest: 'js/skeleton.js',
 			}
