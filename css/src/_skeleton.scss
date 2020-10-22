@@ -9,6 +9,7 @@ html, body {
 }
 
 body {
+	overscroll-behavior-y: none;
 	position: relative;
 	background: $skeleton-color-pageBackground;
 	color: $skeleton-color-pageColor;
