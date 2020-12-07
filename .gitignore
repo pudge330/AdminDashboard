@@ -3,9 +3,6 @@
 /vendor
 composer.lock
 package-lock.json
-index.php
-ipsum.txt
-user.svg
 
 ##--OS files/folders
 */.DS_Store
