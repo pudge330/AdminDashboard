@@ -93,91 +93,95 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 			for (var i = 0; i < $elms.length; i++) {
 				$elms[i].addEventListener('click', function(e) {
 					var target = e.target;
-					var subMenuToggle = bglib.El.hasClass(target, 'subMenuToggle') ? target : target.closest('.subMenuToggle');
-					if ((' ' + target.className + ' ').indexOf(' navLinkAction ') === -1) {
-						target = target.closest('.navLinkAction');
-					}
-					if (!subMenuToggle) {
+					var navLinkSpecialToggle = bglib.El.hasClass(target, 'navLinkSpecialToggle') ? target : target.closest('.navLinkSpecialToggle');
+					target = bglib.El.hasClass(target, 'navLinkAction') ? target : target.closest('.navLinkAction');
+					if (!navLinkSpecialToggle) {
 						_self.handleLink(target.closest('.navLink'), e);
+					}
+					else {
+						e.preventDefault();
+						return false;
 					}
 				});
 			}
-			var $elms = document.querySelectorAll(this.topSelector + ' > .navLinks > .navLink > .navLinkAction .subMenuToggle');
+			var $elms = document.querySelectorAll(this.topSelector + ' > .navLinks > .navLink > .navLinkAction .navLinkSpecialToggle');
 			for (var i = 0; i < $elms.length; i++) {
 				$elms[i].addEventListener('click', function(e) {
-					var target = e.target;
-					if (!bglib.El.hasClass(target, 'subMenuToggle')) {
-						target = target.closest('.subMenuToggle');
+					var target = bglib.El.hasClass(e.target, 'navLinkSpecialToggle') ? e.target : e.target.closest('.navLinkSpecialToggle');
+					if (bglib.El.hasClass(target, 'navLinkSpecialToggle')) {
+						_self.toggleSubMenu(target.closest('.navLinkSpecialAction'));
+						e.preventDefault();
+						return false;
 					}
-					_self.toggleSubMenu(target.closest('.navLinkSubAction'));
-					e.preventDefault();
-					return false;
 				});
 				$elms[i].addEventListener('keydown', function(e) {
-					var target = e.target;
-					if ((' ' + target.className + ' ').indexOf(' subMenuToggle ') === -1) {
-						target = target.closest('.subMenuToggle');
-					}
+					var target = bglib.El.hasClass(e.target, 'navLinkSpecialToggle') ? e.target : e.target.closest('.navLinkSpecialToggle');
 					if(e.keyCode == 13){
-						_self.toggleSubMenu(target.closest('.navLinkSubAction'));
+						console.log('navLinkSpecialToggle:enter_key');
+						_self.toggleSubMenu(target.closest('.navLinkSpecialAction'));
 						e.preventDefault();
 						return false;
 					}
 				});
 				$elms[i].addEventListener('focusin', function(e) {
-					var target = e.target;
-					if ((' ' + target.className + ' ').indexOf(' subMenuToggle ') === -1) {
-						target = target.closest('.subMenuToggle');
-					}
+					var target = bglib.El.hasClass(e.target, 'navLinkSpecialToggle') ? e.target : e.target.closest('.navLinkSpecialToggle');
 					bglib.El.addClass(target.closest('.navLinkAction'), 'focus');
 				});
 				$elms[i].addEventListener('focusout', function(e) {
-					var target = e.target;
-					if ((' ' + target.className + ' ').indexOf(' subMenuToggle ') === -1) {
-						target = target.closest('.subMenuToggle');
-					}
+					var target = bglib.El.hasClass(e.target, 'navLinkSpecialToggle') ? e.target : e.target.closest('.navLinkSpecialToggle');
 					bglib.El.removeClass(target.closest('.navLinkAction'), 'focus');
 				});
 			}
 			var $elms = document.querySelectorAll(this.topSelector + ' > .navLinks > .navLink > .navLinkAction');
 			for (var i = 0; i < $elms.length; i++) {
 				$elms[i].addEventListener('keydown', function(e) {
-					var target = e.target;
-					if ((' ' + target.className + ' ').indexOf(' navLinkAction ') === -1) {
-						target = target.closest('.navLinkAction');
-					}
+					var target = bglib.El.hasClass(e.target, 'navLinkAction') ? e.target : e.target.closest('.navLinkAction');
 					if(e.keyCode == 13){
+						console.log('navLinkAction:enter_key');
 						_self.handleLink(target.closest('.navLink'), e);
 					}
 				});
 			}
 			this.toggleSubMenuTimeout = bglib.fn.debounce(function() {
-				var $elms = _self.$el.querySelectorAll('.navLinkSpecial');
+				var $elms = _self.$el.querySelectorAll('.navLinkSpecialContent');
 				for (var i = 0; i < $elms.length; i++) {
 					$elms[i].style.height = 'auto';
+					var $parent = $elms[i].closest('.navLinkSpecialAction');
+					if ($parent) {
+						var $actions = $parent.querySelectorAll('.navLinkSpecialContent .navLinkAction');
+						for (var j = 0; j < $actions.length; j++) {
+							if ($parent.getAttribute('data-sub-state') == 'closed') {
+								$actions[j].setAttribute('tabindex', '-1');
+							}
+							else {
+								$actions[j].setAttribute('tabindex', '0');
+							}
+						}
+					}
 				}
+
 			}, 400);
 		}
 	}
 	,toggleSubMenu: function($action) {
 		var _self = this;
 		var $link = $action.querySelector('.navLinkAction');
-		var innerHeight = $action.querySelector('.navLinkSpecial > .page-skeleton-menu').offsetHeight;
+		var innerHeight = $action.querySelector('.navLinkSpecialContent > .page-skeleton-menu').offsetHeight;
 		if ($action.getAttribute('data-sub-state') == 'closed') {
-			$action.querySelector('.navLinkSpecial').style.height = innerHeight + 'px';
+			$action.querySelector('.navLinkSpecialContent').style.height = innerHeight + 'px';
 			$action.setAttribute('data-sub-state', 'opened');
 			this.toggleSubMenuTimeout();
 		}
 		else {
-			$action.querySelector('.navLinkSpecial').style.height = innerHeight + 'px';
+			$action.querySelector('.navLinkSpecialContent').style.height = innerHeight + 'px';
 			//--needs a 50ms delay when clsoing otherwise height isn't set or simply ignored
 			setTimeout(function() {
 				$action.setAttribute('data-sub-state', 'closed');
 				_self.toggleSubMenuTimeout();
 			}, 50);
 		}
-		$link.blur();
-		$link.querySelector('.subMenuToggle').blur();
+		// $link.blur();
+		// $link.querySelector('.navLinkSpecialToggle').blur();
 	}
 	,handleLink: function($action, e) {
 		var $link = $action.querySelector('.navLinkAction');
@@ -196,8 +200,9 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 			else
 				location = $link.getAttribute('data-href');
 		}
-		else if ((' ' + $action.className + ' ').indexOf(' navLinkSubAction ') !== -1) {
+		else if (!$link.getAttribute('href') && bglib.El.hasClass($action, 'navLinkSpecialAction')) {
 			this.toggleSubMenu($action);
+			e.preventDefault();
 		}
 	}
 }, {
@@ -218,6 +223,9 @@ if (!Element.prototype.matches) {
 }
 //--@https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
 if (!Element.prototype.closest) {
+	if (!Element.prototype.matches) {
+		Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+	}
 	Element.prototype.closest = function(s) {
 		var el = this;
 		var ancestor = this;
