@@ -4,6 +4,8 @@ use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 $data = array_merge(AdminPanelSkeleton::defaults(Array(
 	'title' => null
+	,'titleUrl' => null
+	,'titleUrlAttributes' => Array('target' => '_blank')
 	,'version' => null
 	,'mainMenu' => Array()
 	,'headerMenu' => Array()
@@ -43,6 +45,11 @@ foreach ($data['content'] as $key => $value) {
 	}
 }
 
+if (!$data['headerMenuState']) {
+	foreach ($data['headerMenu']['links'] as $menuKey => $menuValue) {
+		$data['headerMenu']['links'][$menuKey]['isOpened'] = false;
+	}
+}
 $data['content']['headerMenu'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/header-menu.html.php', $data);
 $data['content']['mainMenu'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/page-menu.html.php', $data);
 $data['content']['header'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/header.html.php', $data);
@@ -111,14 +118,14 @@ $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data
 	</div>
 	<?php } ?>
 	<?php if ($hasAppMenu) { ?>
-		<div class="page-app-menu">
+		<div class="page-app-menu" tabindex="-1">
 			<div class="inner-wrap" tabindex="-1">
 				<?=$data['content']['appMenu']?>
 			</div>
 		</div>
 	<?php } ?>
 	<?php if ($hasHeaderMenu) { ?>
-		<div class="page-header-menu">
+		<div class="page-header-menu" tabindex="-1">
 			<div class="inner-wrap" tabindex="-1">
 				<?=$data['content']['headerMenu']?>
 			</div>
@@ -126,8 +133,8 @@ $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data
 	<?php } ?>
 	<div class="page-main-wrap"<?=($hasPageMenu ? '' : " data-nomenu")?>>
 		<?php if ($hasPageMenu) { ?>
-			<div class="page-menu">
-				<div class="inner-wrap">
+			<div class="page-menu" tabindex="-1">
+				<div class="inner-wrap" tabindex="-1">
 					<?=$data['content']['mainMenu']?>
 				</div>
 				<?php if ($data['version']) { ?>
@@ -138,7 +145,7 @@ $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data
 			</div>
 		<?php } ?>
 		<?php if ($hasSideMenu) { ?>
-			<div class="page-side-menu">
+			<div class="page-side-menu" tabindex="-1">
 				<div class="inner-wrap" tabindex="-1">
 					<?=$data['content']['sideMenu']?>
 				</div>
