@@ -84,9 +84,6 @@ body {
 			&:hover,
 			&:focus {
 				@if $skeleton-color-headerMenuActionFocusBackground {
-					transition: background-color 0.3s ease;
-				}
-				@if $skeleton-color-headerMenuActionFocusBackground {
 					background-color: $skeleton-color-headerMenuActionFocusBackground;
 				}
 				@if ($skeleton-color-headerMenuActionFocusColor) {
@@ -115,7 +112,6 @@ body {
 		//--header branding
 		.header-branding {
 			flex: 1;
-			margin: auto 0;
 			h2 {
 				max-width: calc(100vw - 148px);
 				@media screen and (min-width: $skeleton-breakpoint-sm) {
@@ -127,7 +123,7 @@ body {
 				@else {
 					color: inherit;
 				}
-				padding: 0 0.5rem;
+				height: 100%;
 				margin: 0;
 				letter-spacing: 0.125rem;
 				font-weight: 200;
@@ -135,29 +131,40 @@ body {
 				white-space: nowrap;
 				text-overflow: ellipsis;
 				overflow: hidden;
+				display: flex;
+				> span, a {
+					padding: 0 0.5rem;
+					color: inherit;
+				}
+				> span {
+					margin: auto 0;
+				}
+				a {
+					display: flex;
+					span {
+						margin: auto;
+					}
+					text-decoration: none;
+					@if $skeleton-color-headerMenuActionFocusBackground {
+						transition: background-color 0.3s ease;
+					}
+					&:hover {
+						@if $skeleton-color-headerMenuActionFocusBackground {
+							background-color: $skeleton-color-headerMenuActionFocusBackground;
+						}
+					}
+				}
 				@media screen and (min-width: $skeleton-breakpoint-sm) {
 					font-size: 18px;
-					padding: 0 1rem;
+					> span, a {
+						padding: 0 1rem;
+					}
 				}
 				@media screen and (min-width: $skeleton-breakpoint-md) {
 					font-size: 20px;
 				}
 			}
 		}
-		// header[data-nomenu] {
-		// 	.header-branding {
-		// 		max-width: calc(100vw - #{$skeleton-headerSmHeight});
-		// 		@media screen and (min-width: $skeleton-breakpoint-sm) {
-		// 			max-width: calc(100vw - #{$skeleton-headerSmHeight});
-		// 		}
-		// 	}
-		// 	@media screen and (min-width: $skeleton-breakpoint-sm) {
-		// 		max-width: calc(100vw - #{$skeleton-headerMdHeight});
-		// 		@media screen and (min-width: $skeleton-breakpoint-sm) {
-		// 			max-width: calc(100vw - #{$skeleton-headerMdHeight});
-		// 		}
-		// 	}
-		// }
 
 		//--header member menu
 		.header-member-menu {
@@ -567,9 +574,7 @@ body {
 			}
 		}
 	}
-}
 
-.page-skeleton {
 	&[data-menu-state="closed"] {
 		.page-menu {
 			margin-left: -250px;
@@ -608,5 +613,5 @@ body {
 		.page-main-wrap .side-menu-toggle {
 			display: none;
 		}
-	}	
+	}
 }

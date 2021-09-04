@@ -28,8 +28,17 @@ $skeleton-font-map: (
 $skeleton-widget-adminNav-menuLinkColor: #000 !default;
 $skeleton-widget-adminNav-menuLinkBackground: null !default;
 $skeleton-widget-adminNav-menuLinkFocusColor: null !default;
-$skeleton-widget-adminNav-menuLinkFocusBackground: #ccc !default;
-$skeleton-widget-adminNav-menuLinkFocusBorder: #aaa !default;
+$skeleton-widget-adminNav-menuLinkFocusBackground: #99ddf4 !default;
+$skeleton-widget-adminNav-menuLinkActiveColor: null !default;
+$skeleton-widget-adminNav-menuLinkActiveBackground: #66ccee !default;
+$skeleton-widget-adminNav-menuAltColor: #000 !default;
+$skeleton-widget-adminNav-menuAltBackground: null !default;
+$skeleton-widget-adminNav-menuSpecialColor: #000 !default;
+$skeleton-widget-adminNav-menuSpecialBackground: #eaeaea !default;
+$skeleton-widget-adminNav-menuSpecialColorFocus: null !default;
+$skeleton-widget-adminNav-menuSpecialBackgroundFocus: #ddd !default;
+$skeleton-widget-adminNav-menuSpecialActive: #66ccee !default;
+$skeleton-widget-adminNav-menuSpecialActiveFocus: null !default;
 
 //--placeholders
 %srOnly {
