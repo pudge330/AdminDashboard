@@ -63,25 +63,23 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 					}
 				});
 			}
-			this.toggleSubMenuTimeout = bglib.fn.debounce(function() {
-				var $elms = _self.$el.querySelectorAll('.navLinkSpecialContent');
-				for (var i = 0; i < $elms.length; i++) {
-					$elms[i].style.height = 'auto';
-					var $parent = $elms[i].closest('.navLinkSpecialAction');
-					if ($parent) {
-						var $actions = $parent.querySelectorAll('.navLinkSpecialContent .navLinkAction');
-						for (var j = 0; j < $actions.length; j++) {
-							if ($parent.getAttribute('data-sub-state') == 'closed') {
-								$actions[j].setAttribute('tabindex', '-1');
-							}
-							else {
-								$actions[j].setAttribute('tabindex', '0');
-							}
-						}
-					}
-				}
-
+			this.toggleSubMenuTimeout = bglib.fn.debounce(function(el) {
+				el.style.height = 'auto';
 			}, 400);
+		}
+	}
+	,updateTabindex: function(el) {
+		var $parent = el.closest('.navLinkSpecialAction');
+		if ($parent) {
+			var $actions = $parent.querySelectorAll('.navLinkSpecialContent .navLinkAction');
+			for (var j = 0; j < $actions.length; j++) {
+				if ($parent.getAttribute('data-sub-state') == 'closed') {
+					$actions[j].setAttribute('tabindex', '-1');
+				}
+				else {
+					$actions[j].setAttribute('tabindex', '0');
+				}
+			}
 		}
 	}
 	,toggleSubMenu: function($action) {
@@ -91,14 +89,16 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 		if ($action.getAttribute('data-sub-state') == 'closed') {
 			$action.querySelector('.navLinkSpecialContent').style.height = innerHeight + 'px';
 			$action.setAttribute('data-sub-state', 'opened');
-			this.toggleSubMenuTimeout();
+			this.updateTabindex($action.querySelector('.navLinkSpecialContent'));
+			this.toggleSubMenuTimeout($action.querySelector('.navLinkSpecialContent'));
 		}
 		else {
 			$action.querySelector('.navLinkSpecialContent').style.height = innerHeight + 'px';
 			//--needs a 50ms delay when clsoing otherwise height isn't set or simply ignored
 			setTimeout(function() {
 				$action.setAttribute('data-sub-state', 'closed');
-				_self.toggleSubMenuTimeout();
+				_self.updateTabindex($action.querySelector('.navLinkSpecialContent'));
+				_self.toggleSubMenuTimeout($action.querySelector('.navLinkSpecialContent'));
 			}, 50);
 		}
 	}
