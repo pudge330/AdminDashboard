@@ -25,6 +25,9 @@
 		&.active-link {
 			@if ($skeleton-widget-adminNav-menuLinkActiveColor) {
 				color: $skeleton-widget-adminNav-menuLinkActiveColor;
+				.navLinkSpecialToggle {
+					fill: $skeleton-widget-adminNav-menuLinkActiveColor;
+				}
 			}
 			@if ($skeleton-widget-adminNav-menuLinkActiveBackground) {
 				background-color: $skeleton-widget-adminNav-menuLinkActiveBackground;
@@ -86,6 +89,11 @@
 			@if ($skeleton-widget-adminNav-menuLinkFocusBackground) {
 				background-color: $skeleton-widget-adminNav-menuLinkFocusBackground;
 			}
+			.navLinkSpecialToggle {
+				@if ($skeleton-widget-adminNav-menuLinkFocusColor) {
+					fill: $skeleton-widget-adminNav-menuLinkFocusColor;
+				}
+			}
 		}
 	}
 
@@ -145,7 +153,7 @@
 		cursor: pointer;
 		&:hover, &:focus {
 			@if ($skeleton-widget-adminNav-menuLinkFocusColor) {
-				color: $skeleton-widget-adminNav-menuLinkFocusColor;
+				fill: $skeleton-widget-adminNav-menuLinkFocusColor;
 			}
 			@if ($skeleton-widget-adminNav-menuLinkFocusBackground) {
 				background-color: $skeleton-widget-adminNav-menuLinkFocusBackground;
