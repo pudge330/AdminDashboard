@@ -78,7 +78,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 						if(e.shiftKey == false) {
 							if (_self.$el.getAttribute('data-member-menu-state') == 'opened') {
 								setTimeout(function() {
-									_self.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').focus();
+									_self.$memberMenuWrap.querySelector('.navLink.nl-1 .navLinkAction').focus();
 								}, 1);
 							}
 						}
