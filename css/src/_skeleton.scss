@@ -83,6 +83,7 @@ body {
 			}
 			&:hover,
 			&:focus {
+				outline: none;
 				@if $skeleton-color-headerMenuActionFocusBackground {
 					background-color: $skeleton-color-headerMenuActionFocusBackground;
 				}
@@ -148,7 +149,9 @@ body {
 					@if $skeleton-color-headerMenuActionFocusBackground {
 						transition: background-color 0.3s ease;
 					}
-					&:hover {
+					&:hover,
+					&:focus {
+						outline: none;
 						@if $skeleton-color-headerMenuActionFocusBackground {
 							background-color: $skeleton-color-headerMenuActionFocusBackground;
 						}
@@ -196,6 +199,7 @@ body {
 				}
 				&:hover,
 				&:focus {
+					outline: none;
 					@if $skeleton-color-headerMenuActionFocusBackground {
 						transition: background-color 0.3s ease;
 					}
@@ -311,6 +315,7 @@ body {
 			}
 			&:hover,
 			&:focus {
+				outline: none;
 				@if $skeleton-color-headerMenuActionFocusBackground {
 					transition: background-color 0.3s ease;
 				}
