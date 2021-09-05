@@ -701,6 +701,10 @@ body {
     margin-left: -250px;
   }
 }
+.page-skeleton[data-menu-state=closed] .page-menu .inner-wrap,
+.page-skeleton[data-menu-state=closed] .page-menu .library-version {
+  display: none;
+}
 .page-skeleton[data-menu-state=closed] .page-main-wrap .main-menu-toggle {
   display: none;
 }
@@ -712,6 +716,9 @@ body {
     top: -265px;
   }
 }
+.page-skeleton[data-member-menu-state=closed] .page-header-menu .inner-wrap {
+  display: none;
+}
 .page-skeleton[data-app-menu-state=closed] .page-app-menu {
   top: -325px;
 }
@@ -720,8 +727,14 @@ body {
     top: -315px;
   }
 }
+.page-skeleton[data-app-menu-state=closed] .page-app-menu .inner-wrap {
+  display: none;
+}
 .page-skeleton[data-side-menu-state=closed] .page-side-menu {
   right: -403px;
+}
+.page-skeleton[data-side-menu-state=closed] .page-side-menu .inner-wrap {
+  display: none;
 }
 .page-skeleton[data-side-menu-state=closed] .page-main-wrap .side-menu-toggle {
   display: none;
