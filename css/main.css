@@ -257,6 +257,7 @@ body {
   transition: background-color 0.3s ease;
 }
 .page-skeleton .page-header button.header-nav-action:hover, .page-skeleton .page-header button.header-nav-action:focus {
+  outline: none;
   background-color: rgba(255, 255, 255, 0.3);
 }
 .page-skeleton .page-header .header-content-wrap {
@@ -304,7 +305,8 @@ body {
 .page-skeleton .page-header .header-branding h2 a span {
   margin: auto;
 }
-.page-skeleton .page-header .header-branding h2 a:hover {
+.page-skeleton .page-header .header-branding h2 a:hover, .page-skeleton .page-header .header-branding h2 a:focus {
+  outline: none;
   background-color: rgba(255, 255, 255, 0.3);
 }
 @media screen and (min-width: 38em) {
@@ -352,6 +354,7 @@ body {
   padding: 6px 12px 6px 12px;
 }
 .page-skeleton .page-header .header-member-menu .header-member-toggle:hover, .page-skeleton .page-header .header-member-menu .header-member-toggle:focus {
+  outline: none;
   transition: background-color 0.3s ease;
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -454,6 +457,7 @@ body {
 .page-skeleton .page-header .header-app-menu-action:hover, .page-skeleton .page-header .header-app-menu-action:focus,
 .page-skeleton .page-header .header-side-menu-action:hover,
 .page-skeleton .page-header .header-side-menu-action:focus {
+  outline: none;
   transition: background-color 0.3s ease;
   background-color: rgba(255, 255, 255, 0.3);
 }
