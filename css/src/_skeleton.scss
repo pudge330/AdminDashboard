@@ -590,6 +590,10 @@ body {
 			@media screen and (min-width: $skeleton-breakpoint-md) {
 				margin-left: -250px;
 			}
+			.inner-wrap,
+			.library-version {
+				display: none;
+			}
 		}
 		.page-main-wrap .main-menu-toggle {
 			display: none;
@@ -601,6 +605,9 @@ body {
 			@media screen and (min-width: $skeleton-breakpoint-sm) {
 				top: -265px;
 			}
+			.inner-wrap {
+				display: none;
+			}
 		}
 	}
 	&[data-app-menu-state="closed"] {
@@ -609,11 +616,17 @@ body {
 			@media screen and (min-width: $skeleton-breakpoint-sm) {
 				top: -315px;
 			}
+			.inner-wrap {
+				display: none;
+			}
 		}
 	}
 	&[data-side-menu-state="closed"] {
 		.page-side-menu {
 			right: -403px;
+			.inner-wrap {
+				display: none;
+			}
 		}
 		.page-main-wrap .side-menu-toggle {
 			display: none;
