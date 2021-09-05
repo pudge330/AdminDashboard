@@ -243,6 +243,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 		_self.$el.setAttribute('data-app-menu-state', 'opened');
 		_self.$appMenuAction.querySelector('.nav-label').innerHTML = 'Close App Menu';
 		_self.$appMenuWrap.querySelector('.inner-wrap').scrollTop = 0;
+		_self.$appMenuWrap.querySelector('.inner-wrap').focus();
 		_self.trigger('appMenuOpen');
 		_self.trigger('appMenuToggle', {type: 'open'});
 	}
@@ -259,6 +260,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 		_self.$sideMenuAction.querySelector('.nav-label').innerHTML = 'Close Side Menu';
 		_self.$sideMenuAction.querySelector('.nav-icon svg g').setAttribute('transform', 'rotate(180, 18, 32)');
 		_self.$sideMenuWrap.querySelector('.inner-wrap').scrollTop = 0;
+		_self.$sideMenuWrap.querySelector('.inner-wrap').focus();
 		_self.trigger('sideMenuOpen');
 		_self.trigger('sideMenuToggle', {type: 'open'});
 	}
