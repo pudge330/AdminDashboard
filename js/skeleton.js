@@ -142,25 +142,23 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 					}
 				});
 			}
-			this.toggleSubMenuTimeout = bglib.fn.debounce(function() {
-				var $elms = _self.$el.querySelectorAll('.navLinkSpecialContent');
-				for (var i = 0; i < $elms.length; i++) {
-					$elms[i].style.height = 'auto';
-					var $parent = $elms[i].closest('.navLinkSpecialAction');
-					if ($parent) {
-						var $actions = $parent.querySelectorAll('.navLinkSpecialContent .navLinkAction');
-						for (var j = 0; j < $actions.length; j++) {
-							if ($parent.getAttribute('data-sub-state') == 'closed') {
-								$actions[j].setAttribute('tabindex', '-1');
-							}
-							else {
-								$actions[j].setAttribute('tabindex', '0');
-							}
-						}
-					}
-				}
-
+			this.toggleSubMenuTimeout = bglib.fn.debounce(function(el) {
+				el.style.height = 'auto';
 			}, 400);
+		}
+	}
+	,updateTabindex: function(el) {
+		var $parent = el.closest('.navLinkSpecialAction');
+		if ($parent) {
+			var $actions = $parent.querySelectorAll('.navLinkSpecialContent .navLinkAction');
+			for (var j = 0; j < $actions.length; j++) {
+				if ($parent.getAttribute('data-sub-state') == 'closed') {
+					$actions[j].setAttribute('tabindex', '-1');
+				}
+				else {
+					$actions[j].setAttribute('tabindex', '0');
+				}
+			}
 		}
 	}
 	,toggleSubMenu: function($action) {
@@ -170,18 +168,18 @@ SkeletonWidget.modules.Navigation = SkeletonWidget.modules.Base.extend({
 		if ($action.getAttribute('data-sub-state') == 'closed') {
 			$action.querySelector('.navLinkSpecialContent').style.height = innerHeight + 'px';
 			$action.setAttribute('data-sub-state', 'opened');
-			this.toggleSubMenuTimeout();
+			this.updateTabindex($action.querySelector('.navLinkSpecialContent'));
+			this.toggleSubMenuTimeout($action.querySelector('.navLinkSpecialContent'));
 		}
 		else {
 			$action.querySelector('.navLinkSpecialContent').style.height = innerHeight + 'px';
 			//--needs a 50ms delay when clsoing otherwise height isn't set or simply ignored
 			setTimeout(function() {
 				$action.setAttribute('data-sub-state', 'closed');
-				_self.toggleSubMenuTimeout();
+				_self.updateTabindex($action.querySelector('.navLinkSpecialContent'));
+				_self.toggleSubMenuTimeout($action.querySelector('.navLinkSpecialContent'));
 			}, 50);
 		}
-		// $link.blur();
-		// $link.querySelector('.navLinkSpecialToggle').blur();
 	}
 	,handleLink: function($action, e) {
 		var $link = $action.querySelector('.navLinkAction');
@@ -297,7 +295,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 						if(e.shiftKey == false) {
 							if (_self.$el.getAttribute('data-member-menu-state') == 'opened') {
 								setTimeout(function() {
-									_self.$memberMenuWrap.querySelector('.navLink.nl-2 .navLinkAction').focus();
+									_self.$memberMenuWrap.querySelector('.navLink.nl-1 .navLinkAction').focus();
 								}, 1);
 							}
 						}
@@ -462,6 +460,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 		_self.$el.setAttribute('data-app-menu-state', 'opened');
 		_self.$appMenuAction.querySelector('.nav-label').innerHTML = 'Close App Menu';
 		_self.$appMenuWrap.querySelector('.inner-wrap').scrollTop = 0;
+		_self.$appMenuWrap.querySelector('.inner-wrap').focus();
 		_self.trigger('appMenuOpen');
 		_self.trigger('appMenuToggle', {type: 'open'});
 	}
@@ -478,6 +477,7 @@ SkeletonWidget.modules.Skeleton = SkeletonWidget.modules.Base.extend({
 		_self.$sideMenuAction.querySelector('.nav-label').innerHTML = 'Close Side Menu';
 		_self.$sideMenuAction.querySelector('.nav-icon svg g').setAttribute('transform', 'rotate(180, 18, 32)');
 		_self.$sideMenuWrap.querySelector('.inner-wrap').scrollTop = 0;
+		_self.$sideMenuWrap.querySelector('.inner-wrap').focus();
 		_self.trigger('sideMenuOpen');
 		_self.trigger('sideMenuToggle', {type: 'open'});
 	}
