@@ -25,6 +25,8 @@ $skeleton-font-map: (
 	,nav: $skeleton-font-nav
 );
 
+$skeleton-widget-adminNav-libraryVersionColor: #8c8c8c !default;
+$skeleton-widget-adminNav-libraryVersionFocusColor: $skeleton-widget-adminNav-libraryVersionColor !default;
 $skeleton-widget-adminNav-menuLinkColor: #000 !default;
 $skeleton-widget-adminNav-menuLinkBackground: null !default;
 $skeleton-widget-adminNav-menuLinkFocusColor: null !default;

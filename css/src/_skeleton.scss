@@ -449,10 +449,10 @@ body {
 		}
 		.library-version {
 			text-align: center;
-			color: #8c8c8c;
+			color: $skeleton-widget-adminNav-libraryVersionColor;
 			font-size: .75em;
 			a {
-				color: #8c8c8c;
+				color: $skeleton-widget-adminNav-libraryVersionFocusColor;
 				&:hover {
 					text-decoration: underline;
 				}
