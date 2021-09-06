@@ -463,14 +463,14 @@ body {
 	//--page side menu
 	.page-side-menu {
 		background: #fff;
-		position: absolute;
+		position: fixed;
 		overflow: scroll;
 		height: calc(100vh - #{$skeleton-headerSmHeight});
 		@media screen and (min-width: $skeleton-breakpoint-sm) {
 			height: calc(100vh - #{$skeleton-headerMdHeight});
 		}
 		right: 0;
-		top: 0;
+		bottom: 0;
 		width: 400px;
 		transition: right $skeleton-pageMenuTiming;
 		max-width: calc(100vw - 35px);
