@@ -42,6 +42,7 @@
 }
 .page-skeleton-menu .navLinkAction,
 .page-skeleton-menu .navLinkActionAlt {
+  margin-bottom: 0;
   outline: 0;
   line-height: 1.15;
   border: none;
@@ -588,11 +589,11 @@ body {
 }
 .page-skeleton .page-side-menu {
   background: #fff;
-  position: absolute;
+  position: fixed;
   overflow: scroll;
   height: calc(100vh - 40px);
   right: 0;
-  top: 0;
+  bottom: 0;
   width: 400px;
   transition: right 0.4s;
   max-width: calc(100vw - 35px);
