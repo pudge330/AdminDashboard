@@ -61,7 +61,7 @@ if ($data['style']) {
 	$data['attr']['style'] = trim($data['style']);
 }
 
-$target = $data['urlNewWindow'] == 1 ? ' data-target="_blank"' : '';
+$target = $data['urlNewWindow'] == 1 ? ' target="_blank"' : '';
 $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data['dataAttr'], 'data-');
 
 $tabIndex = $data['isOpened'] ? 0 : -1;
