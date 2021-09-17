@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			dev: {
 				options: {
 					style: 'expanded'
-					,"no-source-map": null
+					,"no-source-map": ''
 				}
 				,files: {
 					'css/main.css': 'css/src/main.scss'
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			,prod: {
 				options: {
 					style: 'compressed'
-					,"no-source-map": null
+					,"no-source-map": ''
 				}
 				,files: {
 					'css/main.min.css': 'css/src/main.scss'
