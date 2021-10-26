@@ -359,12 +359,10 @@ body {
 		transition: top $skeleton-pageMenuTiming;
 		top: $skeleton-headerSmHeight;
 		right: $skeleton-headerSmHeight;
-		/*right: 10px;*/
 		@media screen and (min-width: $skeleton-breakpoint-sm) {
 			max-height: calc(100vh - #{$skeleton-headerMdHeight} - 1rem);
 			top: $skeleton-headerMdHeight;
 			right: $skeleton-headerMdHeight;
-			/*right: 10px;*/
 		}
 		z-index: 998;
 		@extend %shadow;
@@ -482,12 +480,12 @@ body {
 	.page-main-wrap {
 		position: relative;
 		width: 100%;
-		height: calc(100vh - #{$skeleton-headerSmHeight});
+		height: calc(100% - #{$skeleton-headerSmHeight});
 		@media screen and (min-width: $skeleton-breakpoint-sm) {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: nowrap;
-			height: calc(100vh - #{$skeleton-headerMdHeight});
+			height: calc(100% - #{$skeleton-headerMdHeight});
 			&[data-nomenu] {
 				display: block;
 				.page-menu-wrap {
@@ -550,15 +548,8 @@ body {
 		overflow: auto;
 		float: left;
 		width: 100%;
-		flex: 1 1 auto;
-		display: flex;
-		flex-direction: column;
 		height: 100%;
 		@extend %skeleton_mainContentWidth;
-		.main-content {
-			flex-grow: 1;
-			overflow: auto;
-		}
 	}
 
 	//--page toolbar
