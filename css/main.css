@@ -485,7 +485,6 @@ body {
   transition: top 0.4s;
   top: 40px;
   right: 40px;
-  /*right: 10px;*/
   z-index: 998;
 }
 @media screen and (min-width: 38em) {
@@ -493,7 +492,6 @@ body {
     max-height: calc(100vh - 50px - 1rem);
     top: 50px;
     right: 50px;
-    /*right: 10px;*/
   }
 }
 .page-skeleton .page-header-menu .inner-wrap {
@@ -607,14 +605,14 @@ body {
 .page-skeleton .page-main-wrap {
   position: relative;
   width: 100%;
-  height: calc(100vh - 40px);
+  height: calc(100% - 40px);
 }
 @media screen and (min-width: 38em) {
   .page-skeleton .page-main-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: calc(100vh - 50px);
+    height: calc(100% - 50px);
   }
   .page-skeleton .page-main-wrap[data-nomenu] {
     display: block;
@@ -668,14 +666,7 @@ body {
   overflow: auto;
   float: left;
   width: 100%;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
   height: 100%;
-}
-.page-skeleton .page-content-wrap .main-content {
-  flex-grow: 1;
-  overflow: auto;
 }
 .page-skeleton .page-toolbar-wrap .inner-wrap {
   width: 100%;
