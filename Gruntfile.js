@@ -26,13 +26,15 @@ module.exports = function(grunt) {
 		}
 		,autoprefixer: {
 			options: {
-				browsers: ['last 3 versions']
+				browsers: ['last 4 versions', '> 1%', 'ie >= 9', 'ff >= 3']
 			}
 			,dev: {
-				'css/main.css': 'css/main.css'
+				src: 'css/main.css',
+				dest: 'css/main.css'
 			}
 			,prod: {
-				'css/main.min.css': 'css/main.min.css'
+				src: 'css/main.min.css',
+				dest: 'css/main.min.css'
 			}
 		}
 		,concat: {
