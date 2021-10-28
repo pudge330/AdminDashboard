@@ -1,5 +1,4 @@
 <?php
-
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 include __DIR__ . '/vendor/autoload.php';
@@ -38,9 +37,7 @@ $data = [
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Skeleton Template</title>
-	<style>
-		<?=file_get_contents(__DIR__ . '/css/main.css')?>
-	</style>
+	<link href="dist/css/main.css?v=<?=rand()?>" rel="stylesheet" type="text/css">
 	<style>
 		.main-content p {
 			margin: 0 0 1rem 0;
@@ -54,8 +51,8 @@ $data = [
 	<?php
 		echo AdminPanelSkeleton::render($data);
 	?>
-	<script src="js/vendor/bglib.min.js" type="text/javascript"></script>
-	<script src="js/skeleton.js?v=<?=rand()?>" type="text/javascript"></script>
+	<script src="dist/js/vendor/bglib.min.js" type="text/javascript"></script>
+	<script src="dist/js/skeleton.js?v=<?=rand()?>" type="text/javascript"></script>
 	<script type="text/javascript">
 		window.addEventListener('load', function() {
 			SkeletonWidget.load();

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
+include __DIR__ . '/../skeleton.class.php';
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 $hasPageMenu = (trim($data['content']['mainMenu']) ? true : false);

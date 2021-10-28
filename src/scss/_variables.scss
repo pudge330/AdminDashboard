@@ -1,9 +1,14 @@
-//--settings
+//--general
 $skeleton-breakpoint-sm: 38em !default;
 $skeleton-breakpoint-md: 46em !default;
 $skeleton-headerSmHeight: 40px !default;
 $skeleton-headerMdHeight: 50px !default;
 $skeleton-pageMenuTiming: 0.4s !default;
+
+//-colors
+$skeleton-color-pageBackground: #fff !default;
+$skeleton-color-pageColor: #222 !default;
+
 $skeleton-color-headerBackground: #00AAE4 !default;
 $skeleton-color-headerColor: #fff !default;
 $skeleton-color-headerMenuActionColor: $skeleton-color-headerColor !default;
@@ -13,17 +18,6 @@ $skeleton-color-headerMemberColor: $skeleton-color-headerColor !default; //--unu
 $skeleton-color-headerMemberFocusColor: null !default; //--unused
 $skeleton-color-headerBrandingColor: null !default;
 $skeleton-color-headerLogoutHover: #FFCDD2 !default;
-$skeleton-color-pageBackground: #fff !default;
-$skeleton-color-pageColor: #222 !default;
-//--fonts
-$skeleton-font-base: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
-$skeleton-font-heading:  "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
-$skeleton-font-nav: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
-$skeleton-font-map: (
-	base: $skeleton-font-base
-	,heading: $skeleton-font-heading
-	,nav: $skeleton-font-nav
-);
 
 $skeleton-widget-adminNav-libraryVersionColor: #8c8c8c !default;
 $skeleton-widget-adminNav-libraryVersionFocusColor: $skeleton-widget-adminNav-libraryVersionColor !default;
@@ -42,42 +36,7 @@ $skeleton-widget-adminNav-menuSpecialBackgroundFocus: #ddd !default;
 $skeleton-widget-adminNav-menuSpecialActive: $skeleton-widget-adminNav-menuLinkActiveBackground !default;
 $skeleton-widget-adminNav-menuSpecialActiveFocus: null !default;
 
-//--placeholders
-%srOnly {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-}
-%shadow {
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
-				0 3px 1px -2px rgba(0,0,0,0.12),
-				0 1px 5px 0 rgba(0,0,0,0.2);
-}
-%topZIndex {
-	z-index: 999;
-	position: relative;
-}
-%skeleton_mainContentWidth {
-	@media screen and (min-width: $skeleton-breakpoint-sm) {
-	}
-	@media screen and (min-width: $skeleton-breakpoint-md) {
-	}
-	.page-main-wrap[data-nomenu] & {
-		width: 100vw;
-	}
-}
-%skeleton_pageContextBar {
-	background: $skeleton-color-pageBackground;
-	.inner-wrap {
-		width: 100%;
-		overflow: visible;
-		&:empty {
-			display: none;
-		}
-	}
-}
+//--fonts
+$skeleton-font-base: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-heading:  "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$skeleton-font-nav: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;

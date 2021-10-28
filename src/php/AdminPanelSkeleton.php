@@ -4,7 +4,14 @@ namespace BAG\AdminPanelSkeleton;
 class AdminPanelSkeleton {
 	public static function render($data) {
 		ob_start();
-		include __DIR__ . '/../php/skeleton.html.php';
+		include __DIR__ . '/templates/skeleton.html.php';
+		$contents = ob_get_contents();
+		ob_end_clean();
+		return $contents;
+	}
+	public static function renderTemplate($template, $data) {
+		ob_start();
+		include __DIR__ . "/templates/{$template}.html.php";
 		$contents = ob_get_contents();
 		ob_end_clean();
 		return $contents;
@@ -42,7 +49,9 @@ class AdminPanelSkeleton {
 			'grid' => '<svg class="ion_grid" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path class="layer_1" d="M160,153.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V153.3z"></path><path class="layer_2" d="M288,153.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V153.3z"></path><path class="layer_3" d="M416,153.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V153.3z"></path></g><g><path class="layer_4" d="M160,281.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V281.3z"></path><path class="layer_5" d="M288,281.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V281.3z"></path><path class="layer_6" d="M416,281.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V281.3z"></path></g><g><path class="layer_7" d="M160,409.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V409.3z"></path><path class="layer_8" d="M288,409.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V409.3z"></path><path class="layer_9" d="M416,409.3c0,3.7-3,6.7-6.7,6.7h-50.5c-3.7,0-6.7-3-6.7-6.7v-50.5c0-3.7,3-6.7,6.7-6.7h50.5c3.7,0,6.7,3,6.7,6.7V409.3z"></path></g></g></svg>',
 			'chevron_down' => '<svg class="ion_chevron-down" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path class="layer_1" d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9
   c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3 z"></path></svg>',
-			'sidemenu' => '<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M32,48l24,0l0,-5.333l-24,0l0,5.333Zm0,-13.333l24,0l0,-5.334l-24,0l0,5.334Zm0,-18.667l0,5.333l24,0l0,-5.333l-24,0Z" style="fill-rule:nonzero;"></path><g><path d="M13.536,28.465l-3.536,3.535l3.536,3.536l3.535,-3.536l-3.535,-3.535Z"></path><path d="M12.582,34.59l8.486,8.486l3.535,-3.536l-8.485,-8.485l-3.536,3.535Z"></path><path d="M21.068,20.924l-8.486,8.486l3.536,3.535l8.485,-8.485l-3.535,-3.536Z"></path></g></svg>'
+			'sidemenu' => '<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M32,48l24,0l0,-5.333l-24,0l0,5.333Zm0,-13.333l24,0l0,-5.334l-24,0l0,5.334Zm0,-18.667l0,5.333l24,0l0,-5.333l-24,0Z" style="fill-rule:nonzero;"></path><g><path d="M13.536,28.465l-3.536,3.535l3.536,3.536l3.535,-3.536l-3.535,-3.535Z"></path><path d="M12.582,34.59l8.486,8.486l3.535,-3.536l-8.485,-8.485l-3.536,3.535Z"></path><path d="M21.068,20.924l-8.486,8.486l3.536,3.535l8.485,-8.485l-3.535,-3.536Z"></path></g></svg>',
+			'close' => '<svg class="ion_android-close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g><g><polygon class="layer_1" points="405,136.798 375.202,107 256,226.202 136.798,107 107,136.798 226.202,256 107,375.202 136.798,405 256,285.798 
+  375.202,405 405,375.202 285.798,256 "></polygon></g></g></svg>'
 		];
 		return array_key_exists($name, $icons) ? $icons[$name] : '';
 	}

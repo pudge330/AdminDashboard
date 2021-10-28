@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
+include __DIR__ . '/../skeleton.class.php';
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 $toggleIcon = AdminPanelSkeleton::icon('arrow_down');
@@ -37,7 +37,7 @@ if ($data['links'] && !$data['isChild']) {
 		$childLinksData['name'] = "{$data['parentName']}-sub-menu";
 	}
 	$data['toggle'] = true;
-	$data['specialContent'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/navigation.html.php', $childLinksData) . $data['specialContent'];
+	$data['specialContent'] = AdminPanelSkeleton::renderTemplate('navigation', $childLinksData) . $data['specialContent'];
 }
 
 if ($data['active']) {

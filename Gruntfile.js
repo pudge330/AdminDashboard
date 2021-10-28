@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 					,"no-source-map": ''
 				}
 				,files: {
-					'css/main.css': 'css/src/main.scss'
+					'dist/css/main.css': 'src/scss/main.scss'
 				}
 			}
 			,prod: {
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 					,"no-source-map": ''
 				}
 				,files: {
-					'css/main.min.css': 'css/src/main.scss'
+					'dist/css/main.min.css': 'src/scss/main.scss'
 				}
 			}
 		}
@@ -29,12 +29,12 @@ module.exports = function(grunt) {
 				browsers: ['last 4 versions', '> 1%', 'ie >= 9', 'ff >= 3']
 			}
 			,dev: {
-				src: 'css/main.css',
-				dest: 'css/main.css'
+				src: 'dist/css/main.css',
+				dest: 'dist/css/main.css'
 			}
 			,prod: {
-				src: 'css/main.min.css',
-				dest: 'css/main.min.css'
+				src: 'dist/css/main.min.css',
+				dest: 'dist/css/main.min.css'
 			}
 		}
 		,concat: {
@@ -43,21 +43,21 @@ module.exports = function(grunt) {
 			}
 			,dist: {
 				src: [
-					'js/src/base.js'
-					,'js/src/navigation.js'
-					,'js/src/skeleton.js'
+					'src/js/base.js'
+					,'src/js/navigation.js'
+					,'src/js/skeleton.js'
 				],
-				dest: 'js/skeleton.js',
+				dest: 'dist/js/skeleton.js',
 			}
 			,distRequireJS: {
 				src: [
-					'js/src/wrap-start.js'
-					,'js/src/base.js'
-					,'js/src/navigation.js'
-					,'js/src/skeleton.js'
-					,'js/src/wrap-end.js'
+					'src/js/wrap-start.js'
+					,'src/js/base.js'
+					,'src/js/navigation.js'
+					,'src/js/skeleton.js'
+					,'src/js/wrap-end.js'
 				],
-				dest: 'js/skeleton-require.js',
+				dest: 'dist/js/skeleton-require.js',
 			}
 		}
 		,uglify: {
@@ -66,9 +66,19 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'js/skeleton.min.js': ['js/skeleton.js']
-					,'js/skeleton-requirejs.min.js': ['js/skeleton-require.js']
+					'dist/js/skeleton.min.js': ['dist/js/skeleton.js']
+					,'dist/js/skeleton-requirejs.min.js': ['dist/js/skeleton-require.js']
 				}
+			}
+		}
+		,copy: {
+			bglib: {
+				src: 'src/js/vendor/bglib.js',
+				dest: 'dist/js/vendor/bglib.js'
+			},
+			bglibMin: {
+				src: 'src/js/vendor/bglib.min.js',
+				dest: 'dist/js/vendor/bglib.min.js'
 			}
 		}
 	});
@@ -85,6 +95,7 @@ module.exports = function(grunt) {
 		,'autoprefixer'
 		,'concat'
 		,'uglify'
+		,'copy'
 	]);
 	grunt.registerTask('build:css', [
 		'sass'
@@ -101,5 +112,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('build:js', [
 		'concat'
 		,'uglify'
+		,'copy'
 	]);
 };

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
+include __DIR__ . '/../skeleton.class.php';
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 $data = array_merge(AdminPanelSkeleton::defaults(Array(
@@ -40,7 +40,7 @@ $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data
 				$link['isChild'] = $data['isChild'];
 				$link['parentName'] = $data['name'];
 				$link['i'] = $count;
-				echo AdminPanelSkeleton::renderPartial(__DIR__ . '/navigation-item.html.php', $link);
+				echo AdminPanelSkeleton::renderTemplate('navigation-item', $link);
 			}
 		?>
 	</ul>

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/skeleton.class.php';
+include __DIR__ . '/../skeleton.class.php';
 use BAG\AdminPanelSkeleton\AdminPanelSkeleton;
 
 $data = array_merge(AdminPanelSkeleton::defaults(Array(
@@ -45,9 +45,9 @@ foreach ($data['content'] as $key => $value) {
 	}
 }
 
-$data['content']['headerMenu'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/header-menu.html.php', $data);
-$data['content']['mainMenu'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/page-menu.html.php', $data);
-$data['content']['header'] = AdminPanelSkeleton::renderPartial(__DIR__ . '/header.html.php', $data);
+$data['content']['headerMenu'] = AdminPanelSkeleton::renderTemplate('header-menu', $data);
+$data['content']['mainMenu'] = AdminPanelSkeleton::renderTemplate('page-menu', $data);
+$data['content']['header'] = AdminPanelSkeleton::renderTemplate('header', $data);
 
 $data['class'] .= ' page-skeleton';
 
@@ -167,14 +167,12 @@ $attr = AdminPanelSkeleton::attr($data['attr']) . AdminPanelSkeleton::attr($data
 		</div>
 		<?php if ($hasPageMenu) { ?>
 			<div class="menu-toggle main-menu-toggle" data-state="showing">
-				<svg class="ion_android-close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g><g><polygon class="layer_1" points="405,136.798 375.202,107 256,226.202 136.798,107 107,136.798 226.202,256 107,375.202 136.798,405 256,285.798 
-  375.202,405 405,375.202 285.798,256 "></polygon></g></g></svg>
+				<?=AdminPanelSkeleton::icon('close')?>
 			</div>
 		<?php } ?>
 		<?php if ($hasSideMenu) { ?>
 			<div class="menu-toggle side-menu-toggle" data-state="showing">
-				<svg class="ion_android-close" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g><g><polygon class="layer_1" points="405,136.798 375.202,107 256,226.202 136.798,107 107,136.798 226.202,256 107,375.202 136.798,405 256,285.798 
-  375.202,405 405,375.202 285.798,256 "></polygon></g></g></svg>
+				<?=AdminPanelSkeleton::icon('close')?>
 			</div>
 		<?php } ?>
 	</div>
