@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 					,'src/js/skeleton.js'
 					,'src/js/wrap-end.js'
 				],
-				dest: 'dist/js/skeleton-require.js',
+				dest: 'dist/js/skeleton-requirejs.js',
 			}
 		}
 		,uglify: {
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'dist/js/skeleton.min.js': ['dist/js/skeleton.js']
-					,'dist/js/skeleton-requirejs.min.js': ['dist/js/skeleton-require.js']
+					,'dist/js/skeleton-requirejs.min.js': ['dist/js/skeleton-requirejs.js']
 				}
 			}
 		}
